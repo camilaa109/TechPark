@@ -2,17 +2,16 @@ package co.edu.uniquindio.techpark.model;
 
 public abstract class Persona {
 
-    protected String id;
     protected String nombre;
     protected String documento;
     protected int edad;
-    private int contador = 0;
+    protected String contrasenia;
 
-    public Persona(String nombre, String documento, int edad) {
-        this.id = nombre + contador++;
+    public Persona(String nombre, String documento, int edad, String contrasenia) {
         this.nombre = nombre;
         this.documento = documento;
         this.edad = edad;
+        this.contrasenia = contrasenia;
     }
 
     //getters y setters
@@ -20,8 +19,12 @@ public abstract class Persona {
         return nombre;
     }
 
-    public String getId() {
-        return id;
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     public void setNombre(String nombre) {
@@ -42,8 +45,6 @@ public abstract class Persona {
 
     public void setEdad(int edad) {
         this.edad = edad;
-    }
-
-    
+    } 
     
 }

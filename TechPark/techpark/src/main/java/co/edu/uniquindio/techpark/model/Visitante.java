@@ -10,8 +10,8 @@ public class Visitante extends Persona {
     private List<Ticket> listaTickets;
     private List<String> listaIdFavoritos;
     
-    public Visitante(String nombre, String documento, int edad, int estatura) {
-        super(nombre, documento, edad);
+    public Visitante(String nombre, String documento, int edad, String contrasenia, double estatura) {
+        super(nombre, documento, edad, contrasenia);
         this.estatura = estatura;
         this.saldoVirtual = 0;
         this.listaTickets = new ArrayList<>();

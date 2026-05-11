@@ -10,7 +10,7 @@ public class Ticket {
     private double descuento;
     private TipoTicket tipoTicket;
     private EstadoTicket estadoTicket;
-    private int contador = 0;
+    private static int contador = 0;
 
     public Ticket(double precioTicket, double descuento, TipoTicket tipoTicket) {
         this.idTicket = tipoTicket.toString() + contador++;

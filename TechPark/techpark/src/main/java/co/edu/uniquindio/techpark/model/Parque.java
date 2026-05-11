@@ -7,29 +7,45 @@ public class Parque{
 
     private String nombre;
     private int capacidadMaxima;
-    private List<String> listaIdZonas; 
-    private List<String> listaIdVisitantes; 
-    private List<String> listaIdEmpleados;
+    private List<Zona> listaZonas; 
+    private List<Visitante> listaVisitantes; 
+    private List<Empleado> listaEmpleados;
 
     //Constructor
     public Parque(String nombre, int capacidadMaxima) {
         this.nombre = nombre;
         this.capacidadMaxima = capacidadMaxima;
-        this.listaIdZonas = new ArrayList<String>();
-        this.listaIdVisitantes = new ArrayList<String>();
-        this.listaIdEmpleados = new ArrayList<String>();
+        this.listaZonas = new ArrayList<Zona>();
+        this.listaVisitantes = new ArrayList<Visitante>();
+        this.listaEmpleados = new ArrayList<Empleado>();
     }
 
-    public void agregarZona (String idZona){
-        listaIdZonas.add(idZona);
+
+    //funciones para visitantes
+    public boolean agregarVisitante (Visitante visitante){
+        listaVisitantes.add(visitante);
+        return true;
     }
 
-    public void agregarVisitante (String idVisitante){
-        listaIdVisitantes.add(idVisitante);
+    public List<Visitante> obtenerListaVisitantes (){
+        return listaVisitantes;
+    } 
+    
+    public Visitante obtenerVisitante (String documento){
+        for (Visitante v: listaVisitantes){
+            if (documento.equals(v.getDocumento())){
+                return v;
+            }
+        }
+        return null;
     }
 
-    public void agregarEmpleado (String idEmpleado){
-        listaIdEmpleados.add(idEmpleado);
+    public void agregarZona (Zona zona){
+        listaZonas.add(zona);
+    }
+
+    public void agregarEmpleado (Empleado empleado){
+        listaEmpleados.add(empleado);
     }
 
     //Getters
@@ -41,16 +57,16 @@ public class Parque{
         return capacidadMaxima;
     }
 
-    public List<String> getListaIdZonas() {
-        return listaIdZonas;
+    public List<Zona> getListaIdZonas() {
+        return listaZonas;
     }
 
-    public List<String> getListaIdVisitantes() {
-        return listaIdVisitantes;
+    public List<Visitante> getListaIdVisitantes() {
+        return listaVisitantes;
     }
 
-    public List<String> getListaIdEmpleados() {
-        return listaIdEmpleados;
+    public List<Empleado> getListaIdEmpleados() {
+        return listaEmpleados;
     }
 
     //Setters
@@ -62,19 +78,6 @@ public class Parque{
     public void setCapacidadMaxima(int capacidadMaxima) {
         this.capacidadMaxima = capacidadMaxima;
     }
-
-    public void setListaIdZonas(List<String> listaIdZonas) {
-        this.listaIdZonas = listaIdZonas;
-    }
-
-    public void setListaIdVisitantes(List<String> listaIdVisitantes) {
-        this.listaIdVisitantes = listaIdVisitantes;
-    }
-
-    public void setListaIdEmpleados(List<String> listaIdEmpleados) {
-        this.listaIdEmpleados = listaIdEmpleados;
-    } 
-    
 
 }
 
