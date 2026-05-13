@@ -8,14 +8,26 @@ public class Visitante extends Persona {
     private double estatura;
     private double saldoVirtual;
     private List<Ticket> listaTickets;
-    private List<String> listaIdFavoritos;
+    private List<String> listaFavoritos;
     
     public Visitante(String nombre, String documento, int edad, String contrasenia, double estatura) {
         super(nombre, documento, edad, contrasenia);
         this.estatura = estatura;
         this.saldoVirtual = 0;
         this.listaTickets = new ArrayList<>();
-        this.listaIdFavoritos = new ArrayList<>();
+        this.listaFavoritos = new ArrayList<>();
+    }
+
+    public void restarSaldoVirtual (double cantidad){
+        saldoVirtual -= cantidad;
+    }
+
+    public void agregarTicket (Ticket t){
+        listaTickets.add(t);
+    }
+
+    public void agregarFavorito (String nombreAtraccion){
+        listaFavoritos.add(nombreAtraccion);
     }
 
     //getters y setters
@@ -23,8 +35,8 @@ public class Visitante extends Persona {
         return listaTickets;
     }
 
-    public List<String> getListaIdFavoritos() {
-        return listaIdFavoritos;
+    public List<String> getListaNombreFavoritos() {
+        return listaFavoritos;
     }
 
     public double getEstatura() {

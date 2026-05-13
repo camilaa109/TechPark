@@ -19,6 +19,19 @@ public class Zona {
         this.listaIdOperadores = new ArrayList<>();
     }
 
+    public void agregarAtraccion (Atraccion atraccion){
+        listaAtracciones.add(atraccion);
+    }
+
+    public Atraccion obtenerAtraccion (String nombre){
+        for (Atraccion a : listaAtracciones){
+            if (a.getNombreAtraccion().equals(nombre)){
+                return a;
+            }
+        }
+        return null;
+    }
+
     //getters y setters
     public String getNombreZona() {
         return nombreZona;

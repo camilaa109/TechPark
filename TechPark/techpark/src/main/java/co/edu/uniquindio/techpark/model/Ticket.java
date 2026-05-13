@@ -12,12 +12,26 @@ public class Ticket {
     private EstadoTicket estadoTicket;
     private static int contador = 0;
 
-    public Ticket(double precioTicket, double descuento, TipoTicket tipoTicket) {
+    public Ticket(double descuento, TipoTicket tipoTicket) {
         this.idTicket = tipoTicket.toString() + contador++;
-        this.precioTicket = precioTicket;
         this.descuento = descuento;
         this.tipoTicket = tipoTicket;
+        this.precioTicket = definirPrecioTicket(tipoTicket, descuento);
         this.estadoTicket = EstadoTicket.RESERVADO;
+    }
+
+    private double definirPrecioTicket(TipoTicket tipoTicket, double descuento){
+
+        switch (tipoTicket){
+            case GENERAL:
+                return 100 * (1-descuento);
+            case FAST_PASS:
+                return 200 * (1-descuento);
+            case FAMILIAR:
+                return 300 * (1-descuento);
+            default:
+                return 0;
+        }
     }
 
     //getters y setters

@@ -9,7 +9,7 @@ public class Atraccion {
 
     private String nombreAtraccion;
     private int capacidadMaxima;
-    private int alturaMinima;
+    private double alturaMinima;
     private int edadMinima;
     private double costoAdicional;
     private int visitantesAcumulados;
@@ -21,7 +21,7 @@ public class Atraccion {
     private static int contador = 0;
 
     // Constructor
-    public Atraccion(String nombreAtraccion, int capacidadMaxima, int alturaMinima, int edadMinima,
+    public Atraccion(String nombreAtraccion, int capacidadMaxima, double alturaMinima, int edadMinima,
             double costoAdicional, int tiempoEspera, TipoAtraccion tipoAtraccion) {
         this.idAtraccion = nombreAtraccion + contador++;
         this.nombreAtraccion = nombreAtraccion;
@@ -58,7 +58,7 @@ public class Atraccion {
         this.capacidadMaxima = capacidadMaxima;
     }
 
-    public int getAlturaMinima() {
+    public double getAlturaMinima() {
         return alturaMinima;
     }
 

@@ -22,14 +22,11 @@ public class Parque{
 
 
     //funciones para visitantes
-    public boolean agregarVisitante (Visitante visitante){
+    public boolean agregarVisitante (String nombre, String documento, int edad, String contrasenia, double estatura){
+        Visitante visitante = new Visitante(nombre, documento, edad, contrasenia, estatura);
         listaVisitantes.add(visitante);
         return true;
     }
-
-    public List<Visitante> obtenerListaVisitantes (){
-        return listaVisitantes;
-    } 
     
     public Visitante obtenerVisitante (String documento){
         for (Visitante v: listaVisitantes){
@@ -40,8 +37,57 @@ public class Parque{
         return null;
     }
 
-    public void agregarZona (Zona zona){
+    public void actualizarVisitante (String nombre, String documento, int edad, double estatura){
+        Visitante visitante = obtenerVisitante(documento);
+        visitante.setNombre(nombre);
+        visitante.setEdad(edad);
+        visitante.setEstatura(estatura);
+    }
+
+    public void eliminarVisitante (String documento){
+        Visitante v = obtenerVisitante(documento);
+        listaVisitantes.remove(v);
+    }
+
+    public void comprarTicket (String documento, double descuento, TipoTicket tipoticket){
+        Visitante v = obtenerVisitante(documento);
+        Ticket ticket = new Ticket(descuento, tipoticket);
+        v.restarSaldoVirtual(ticket.getPrecioTicket());
+        v.agregarTicket(ticket);
+    }
+
+    public void agregarFavorito (String documento, String nombreAtraccion){
+        Visitante v = obtenerVisitante(documento);
+        v.agregarFavorito(nombreAtraccion);
+    }
+    
+
+    //Funciones para atracciones y zonas
+    public void agregarZona (String nombre){
+        Zona zona = new Zona(nombre);
         listaZonas.add(zona);
+    }
+
+    public Zona obtenerZona (String nombre){
+        for (Zona z : listaZonas){
+            if (z.getNombreZona().equals(nombre)){
+                return z;
+            }
+        }
+        return null;
+    }
+
+    public Atraccion obtenerAtraccion (String nombreZona, String nombreAtraccion){
+        Zona zona = obtenerZona(nombreZona);
+        return zona.obtenerAtraccion(nombreAtraccion);
+    }
+
+    public void agregarAtraccion (String nombreAtraccion, int capacidadMaxima, double alturaMinima, double costoAdicional,
+         int tiempoEspera, TipoAtraccion tipoAtraccion, String nombreZona){
+        Zona zona = obtenerZona(nombreZona);
+        Atraccion atraccion = new Atraccion(nombreAtraccion, capacidadMaxima, alturaMinima, capacidadMaxima, 
+            costoAdicional, tiempoEspera, tipoAtraccion);
+        zona.agregarAtraccion(atraccion);
     }
 
     public void agregarEmpleado (Empleado empleado){
@@ -57,11 +103,11 @@ public class Parque{
         return capacidadMaxima;
     }
 
-    public List<Zona> getListaIdZonas() {
+    public List<Zona> getListaZonas() {
         return listaZonas;
     }
 
-    public List<Visitante> getListaIdVisitantes() {
+    public List<Visitante> getListaVisitantes() {
         return listaVisitantes;
     }
 
