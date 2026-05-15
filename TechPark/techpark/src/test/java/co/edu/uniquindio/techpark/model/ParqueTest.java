@@ -170,6 +170,7 @@ public class ParqueTest {
         String nombreZona = "zona1";
         String nombreAtraccion = "atraccion1";
 
+        parque.cambiarEstadoAtraccion(nombreZona, nombreAtraccion, EstadoAtraccion.ACTIVA);
         for (Visitante v : parque.getListaVisitantes()){
             parque.accesoAtraccion(v.getDocumento(), nombreZona, nombreAtraccion);
         }
