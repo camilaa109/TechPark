@@ -1,0 +1,191 @@
+[
+  {
+    "nombre": "Carlos Mendoza",
+    "documento": "10293847",
+    "edad": 28,
+    "contrasenia": "carlos2024",
+    "estatura": 1.75,
+    "saldoVirtual": 50.0,
+    "listaFavoritos": ["Montaña Rusa", "Carrusel"],
+    "listaTickets": [
+      {
+        "idTicket": "GENERAL0",
+        "precioTicket": 25.0,
+        "fechaTicket": "2026-05-14T14:30:00",
+        "descuento": 0.0,
+        "tipoTicket": "GENERAL",
+        "estadoTicket": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "nombre": "Ana Sofía Ruiz",
+    "documento": "11928374",
+    "edad": 22,
+    "contrasenia": "ana_pass99",
+    "estatura": 1.62,
+    "saldoVirtual": 120.5,
+    "listaFavoritos": ["Rueda de la Fortuna"],
+    "listaTickets": [
+      {
+        "idTicket": "FAST_PASS1",
+        "precioTicket": 45.0,
+        "fechaTicket": "2026-05-15T10:00:00",
+        "descuento": 10.0,
+        "tipoTicket": "FAST_PASS",
+        "estadoTicket": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "nombre": "Juan Pablo Duarte",
+    "documento": "10475839",
+    "edad": 35,
+    "contrasenia": "juanP#2026",
+    "estatura": 1.80,
+    "saldoVirtual": 15.0,
+    "listaFavoritos": ["Carros Chocones", "Barco Pirata"],
+    "listaTickets": [
+      {
+        "idTicket": "FAMILIAR2",
+        "precioTicket": 60.0,
+        "fechaTicket": "2026-04-20T12:00:00",
+        "descuento": 15.0,
+        "tipoTicket": "FAMILIAR",
+        "estadoTicket": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "nombre": "Lucía Fernández",
+    "documento": "10837465",
+    "edad": 19,
+    "contrasenia": "lucy_sky",
+    "estatura": 1.58,
+    "saldoVirtual": 200.0,
+    "listaFavoritos": ["Casa del Terror", "Montaña Rusa"],
+    "listaTickets": [
+      {
+        "idTicket": "FAST_PASS3",
+        "precioTicket": 50.0,
+        "fechaTicket": "2026-05-14T16:45:00",
+        "descuento": 0.0,
+        "tipoTicket": "FAST_PASS",
+        "estadoTicket": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "nombre": "Mateo Gómez",
+    "documento": "10556677",
+    "edad": 31,
+    "contrasenia": "mat_gomez123",
+    "estatura": 1.72,
+    "saldoVirtual": 35.0,
+    "listaFavoritos": [],
+    "listaTickets": [
+      {
+        "idTicket": "GENERAL4",
+        "precioTicket": 20.0,
+        "fechaTicket": "2026-05-10T09:15:00",
+        "descuento": 5.0,
+        "tipoTicket": "GENERAL",
+        "estadoTicket": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "nombre": "Valeria Castro",
+    "documento": "11223344",
+    "edad": 25,
+    "contrasenia": "val_secret",
+    "estatura": 1.65,
+    "saldoVirtual": 0.0,
+    "listaFavoritos": ["Sillas Voladoras"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Ricardo Torres",
+    "documento": "10998877",
+    "edad": 40,
+    "contrasenia": "rtorres!99",
+    "estatura": 1.85,
+    "saldoVirtual": 500.0,
+    "listaFavoritos": ["Montaña Rusa", "Torre de Caída", "Troncos"],
+    "listaTickets": [
+      {
+        "idTicket": "FAMILIAR5",
+        "precioTicket": 70.0,
+        "fechaTicket": "2026-05-14T11:00:00",
+        "descuento": 0.0,
+        "tipoTicket": "FAMILIAR",
+        "estadoTicket": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "nombre": "Elena Martínez",
+    "documento": "11445566",
+    "edad": 27,
+    "contrasenia": "elena_m_27",
+    "estatura": 1.60,
+    "saldoVirtual": 42.0,
+    "listaFavoritos": ["Carrusel"],
+    "listaTickets": [
+      {
+        "idTicket": "GENERAL6",
+        "precioTicket": 25.0,
+        "fechaTicket": "2026-05-14T18:00:00",
+        "descuento": 0.0,
+        "tipoTicket": "GENERAL",
+        "estadoTicket": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "nombre": "Santiago Peña",
+    "documento": "10667788",
+    "edad": 21,
+    "contrasenia": "santi_p_pass",
+    "estatura": 1.78,
+    "saldoVirtual": 10.0,
+    "listaFavoritos": ["Casa del Terror"],
+    "listaTickets": [
+      {
+        "idTicket": "FAST_PASS7",
+        "precioTicket": 40.0,
+        "fechaTicket": "2026-05-13T15:20:00",
+        "descuento": 10.0,
+        "tipoTicket": "FAST_PASS",
+        "estadoTicket": "ACTIVO"
+      }
+    ]
+  },
+  {
+    "nombre": "Isabela Ríos",
+    "documento": "11778899",
+    "edad": 24,
+    "contrasenia": "isa_rios24",
+    "estatura": 1.68,
+    "saldoVirtual": 85.5,
+    "listaFavoritos": ["Rueda de la Fortuna", "Carrusel"],
+    "listaTickets": [
+      {
+        "idTicket": "GENERAL8",
+        "precioTicket": 22.5,
+        "fechaTicket": "2026-05-01T10:30:00",
+        "descuento": 2.5,
+        "tipoTicket": "GENERAL",
+        "estadoTicket": "VENCIDO"
+      },
+      {
+        "idTicket": "GENERAL9",
+        "precioTicket": 25.0,
+        "fechaTicket": "2026-05-14T09:00:00",
+        "descuento": 0.0,
+        "tipoTicket": "GENERAL",
+        "estadoTicket": "ACTIVO"
+      }
+    ]
+  }
+]

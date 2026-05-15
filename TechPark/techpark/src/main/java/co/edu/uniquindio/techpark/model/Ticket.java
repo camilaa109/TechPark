@@ -12,12 +12,14 @@ public class Ticket {
     private EstadoTicket estadoTicket;
     private static int contador = 0;
 
+    public Ticket(){}
+
     public Ticket(double descuento, TipoTicket tipoTicket) {
         this.idTicket = tipoTicket.toString() + contador++;
         this.descuento = descuento;
         this.tipoTicket = tipoTicket;
         this.precioTicket = definirPrecioTicket(tipoTicket, descuento);
-        this.estadoTicket = EstadoTicket.RESERVADO;
+        this.estadoTicket = EstadoTicket.ACTIVO;
     }
 
     private double definirPrecioTicket(TipoTicket tipoTicket, double descuento){
@@ -75,7 +77,12 @@ public class Ticket {
         this.estadoTicket = estadoTicket;
     }
 
-    
+    public void setIdTicket(String idTicket) {
+        this.idTicket = idTicket;
+    }
 
+    public void setTipoTicket(TipoTicket tipoTicket) {
+        this.tipoTicket = tipoTicket;
+    }
     
 }

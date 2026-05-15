@@ -9,13 +9,35 @@ public class Visitante extends Persona {
     private double saldoVirtual;
     private List<Ticket> listaTickets;
     private List<String> listaFavoritos;
+    private List<Notificacion> notificaciones;
     
+    public Visitante (){
+        this.saldoVirtual = 0;
+        this.listaTickets = new ArrayList<>();
+        this.listaFavoritos = new ArrayList<>();
+        this.notificaciones = new ArrayList<>();
+    }
+
     public Visitante(String nombre, String documento, int edad, String contrasenia, double estatura) {
         super(nombre, documento, edad, contrasenia);
         this.estatura = estatura;
         this.saldoVirtual = 0;
         this.listaTickets = new ArrayList<>();
         this.listaFavoritos = new ArrayList<>();
+        this.notificaciones = new ArrayList<>();
+    }
+
+    public void recibirNotificacion(Notificacion notificacion) {
+        notificaciones.add(notificacion);
+    }   
+
+    public Ticket obtenerTicket (EstadoTicket estadoTicket){
+        for (Ticket t : listaTickets){
+            if (t.getEstadoTicket().equals(estadoTicket)){
+                return t;
+            }
+        }
+        return null;
     }
 
     public void restarSaldoVirtual (double cantidad){
@@ -55,6 +77,23 @@ public class Visitante extends Persona {
         this.saldoVirtual = saldoVirtual;
     }
 
-    
-    
+    public void setListaTickets(List<Ticket> listaTickets) {
+        this.listaTickets = listaTickets;
+    }
+
+    public List<String> getListaFavoritos() {
+        return listaFavoritos;
+    }
+
+    public void setListaFavoritos(List<String> listaFavoritos) {
+        this.listaFavoritos = listaFavoritos;
+    }
+
+    public List<Notificacion> getNotificaciones() {
+        return notificaciones;
+    }
+
+    public void setNotificaciones(List<Notificacion> notificaciones) {
+        this.notificaciones = notificaciones;
+    } 
 }

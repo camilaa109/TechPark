@@ -2,6 +2,7 @@ package co.edu.uniquindio.techpark.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class Atraccion {
     
@@ -9,37 +10,86 @@ public class Atraccion {
 
     private String nombreAtraccion;
     private int capacidadMaxima;
-    private double alturaMinima;
-    private int edadMinima;
+    private RequisitosSeguridad requisitosSeguridad;
     private double costoAdicional;
     private int visitantesAcumulados;
     private int tiempoEspera;
+    private int tiempoEsperaTotal;
     private String motivoCierre;
-    private List<String> listaIdOperadoresAsignados;
+    private List<String> listaDocumentoOperadoresAsignados;
     private TipoAtraccion tipoAtraccion;
     private EstadoAtraccion estadoAtraccion;
     private static int contador = 0;
+    private PriorityQueue<Visitante> colaVirtual = new PriorityQueue<>((v1, v2) -> {
+    int p1 = v1.obtenerTicket(EstadoTicket.ACTIVO).getTipoTicket().getNivel();
+    int p2 = v2.obtenerTicket(EstadoTicket.ACTIVO).getTipoTicket().getNivel();
+    return Integer.compare(p1, p2); });
 
     // Constructor
-    public Atraccion(String nombreAtraccion, int capacidadMaxima, double alturaMinima, int edadMinima,
+    public Atraccion(String nombreAtraccion, int capacidadMaxima, RequisitosSeguridad requisitosSeguridad,
             double costoAdicional, int tiempoEspera, TipoAtraccion tipoAtraccion) {
         this.idAtraccion = nombreAtraccion + contador++;
         this.nombreAtraccion = nombreAtraccion;
         this.capacidadMaxima = capacidadMaxima;
-        this.alturaMinima = alturaMinima;
-        this.edadMinima = edadMinima;
+        this.requisitosSeguridad = requisitosSeguridad;
         this.costoAdicional = costoAdicional;
         this.tiempoEspera = tiempoEspera;
         this.tipoAtraccion = tipoAtraccion;
         this.visitantesAcumulados = 0;
+        this.tiempoEsperaTotal = 0;
         this.motivoCierre = "";
-        this.listaIdOperadoresAsignados = new ArrayList<>();
+        this.listaDocumentoOperadoresAsignados = new ArrayList<>();
         this.estadoAtraccion = EstadoAtraccion.CERRADA;
     }
 
+    public List<Visitante> realizarCiclo() {
+        List<Visitante> proximosVisitantes = new ArrayList<>();
+        for (int i = 0; i < capacidadMaxima; i++){
+            Visitante siguiente = colaVirtual.poll();
+
+            if (siguiente != null){
+                proximosVisitantes.add(siguiente);
+                this.visitantesAcumulados++;
+            }
+        }
+        return proximosVisitantes;
+    }
+
+    public void agregarVisitanteCola (Visitante visitante){
+        colaVirtual.add(visitante);
+    }
+    
+    public void eliminarVisitanteCola (Visitante visitante){
+        colaVirtual.remove(visitante);
+    }
+
+    public void asignarOperador (String documento){
+        if (listaDocumentoOperadoresAsignados.contains(documento)){
+            designarOperador(documento);
+        }
+        listaDocumentoOperadoresAsignados.add(documento);
+    }
+
+    public void designarOperador (String documento){
+        listaDocumentoOperadoresAsignados.remove(documento);
+    }
+
     //getters y setters
+
     public String getIdAtraccion() {
         return idAtraccion;
+    }
+
+    public int getTiempoEsperaTotal() {
+        return tiempoEsperaTotal;
+    }
+
+    public void setTiempoEsperaTotal(int tiempoEsperaTotal) {
+        this.tiempoEsperaTotal = tiempoEsperaTotal;
+    }
+
+    public PriorityQueue<Visitante> getColaVirtual() {
+        return colaVirtual;
     }
 
     public String getNombreAtraccion() {
@@ -58,20 +108,8 @@ public class Atraccion {
         this.capacidadMaxima = capacidadMaxima;
     }
 
-    public double getAlturaMinima() {
-        return alturaMinima;
-    }
-
-    public void setAlturaMinima(int alturaMinima) {
-        this.alturaMinima = alturaMinima;
-    }
-
-    public int getEdadMinima() {
-        return edadMinima;
-    }
-
-    public void setEdadMinima(int edadMinima) {
-        this.edadMinima = edadMinima;
+    public RequisitosSeguridad getRequisitosSeguridad() {
+        return requisitosSeguridad;
     }
 
     public double getCostoAdicional() {
@@ -122,9 +160,7 @@ public class Atraccion {
         this.estadoAtraccion = estadoAtraccion;
     }
 
-    public List<String> getListaIdOperadoresAsignados() {
-        return listaIdOperadoresAsignados;
+    public List<String> getListaDocumentoOperadoresAsignados() {
+        return listaDocumentoOperadoresAsignados;
     }
-    
-
 }

@@ -2,28 +2,28 @@ package co.edu.uniquindio.techpark.model;
 
 public class Operador extends Empleado {
 
-    private String idZonaAsignada;
-    private String idAtraccionAsignada;
+    private String nombreZonaAsignada;
+    private String nombreAtraccionAsignada;
 
     public Operador(String nombre, String documento, int edad, String contrasenia) {
         super(nombre, documento, edad, contrasenia);
     }
 
     //getters y setters
-    public String getIdZonaAsignada() {
-        return idZonaAsignada;
+    public String getNombreZonaAsignada() {
+        return nombreZonaAsignada;
     }
 
-    public void setIdZonaAsignada(String idZonaAsignada) {
-        this.idZonaAsignada = idZonaAsignada;
+    public void setNombreZonaAsignada(String nombreZonaAsignada) {
+        this.nombreZonaAsignada = nombreZonaAsignada;
     }
 
-    public String getIdAtraccionAsignada() {
-        return idAtraccionAsignada;
+    public String getNombreAtraccionAsignada() {
+        return nombreAtraccionAsignada;
     }
 
-    public void setIdAtraccionAsignada(String idAtraccionAsignada) {
-        this.idAtraccionAsignada = idAtraccionAsignada;
+    public void setNombreAtraccionAsignada(String nombreAtraccionAsignada) {
+        this.nombreAtraccionAsignada = nombreAtraccionAsignada;
     }
     
 }

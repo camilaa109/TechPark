@@ -7,6 +7,8 @@ public abstract class Persona {
     protected int edad;
     protected String contrasenia;
 
+    public Persona (){}
+
     public Persona(String nombre, String documento, int edad, String contrasenia) {
         this.nombre = nombre;
         this.documento = documento;
