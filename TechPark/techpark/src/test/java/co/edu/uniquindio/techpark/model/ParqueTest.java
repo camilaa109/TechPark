@@ -33,6 +33,17 @@ public class ParqueTest {
     }
 
     @Test
+    void inicioSesionVisitante (){
+        registroVisitante();
+        String documento = "123";
+        String contrasenia = "1234";
+
+        Rol rol = parque.inicioSesion(documento, contrasenia);
+
+        assertEquals(rol, Rol.VISITANTE);
+    }
+
+    @Test
     void obtenerListaVisitantes (){
         registroVisitante();
         List<Visitante> visitantesObtenidos = parque.getListaVisitantes();
@@ -105,6 +116,40 @@ public class ParqueTest {
         
     }
 
+    @Test
+    void recibirNotificacion (){
+        realizarCicloAtraccion();
+        String documento = "11928374";
+
+        List<Notificacion> notificaciones = parque.obtenerNotificaciones(documento);
+
+        assertEquals("Es tu turno", notificaciones.get(0).titulo());
+    }
+
+    @Test
+    void eliminarNotificacion (){
+        realizarCicloAtraccion();
+        String documento = "11928374";
+        String idNotificacion = "notificacion_0";
+
+        parque.eliminarNotificacion(documento, idNotificacion);
+
+        parque.obtenerVisitante(documento).getNotificaciones().stream().map(Notificacion::titulo).forEach(System.out::println);
+        
+        assertTrue(parque.obtenerNotificaciones(documento).isEmpty());
+    }
+
+    @Test
+    void consultarTiempoEspera (){
+        realizarCicloAtraccion();
+        String nombreZona = "zona1";
+        String nombreAtraccion = "atraccion1";
+
+        int consulta = parque.consultarTiempoEspera(nombreZona, nombreAtraccion);
+
+        assertEquals(5, consulta);
+    }
+
     // Pruebas de empleados
     
     @Test
@@ -118,6 +163,17 @@ public class ParqueTest {
 
         Operador operadorEncontrado = parque.obtenerOperador(documento);
         assertNotNull(operadorEncontrado);
+    }
+
+    @Test
+    void eliminarOperador (){
+        registroOperadores();
+        String documento = "234";
+
+        parque.eliminarOperador(documento);
+
+        Operador operador = parque.obtenerOperador(documento);
+        assertNull(operador);
     }
 
     @Test
@@ -135,7 +191,7 @@ public class ParqueTest {
         Operador operadorEncontrado = parque.obtenerOperador(documento);
         Atraccion atraccionEncontrada = parque.obtenerAtraccion(nombreZona, nombreAtraccion);
         assertEquals(nombreAtraccion, operadorEncontrado.getNombreAtraccionAsignada());
-        assertEquals(documento, atraccionEncontrada.getListaDocumentoOperadoresAsignados().get(0));
+        assertEquals(operadorEncontrado, atraccionEncontrada.getListaOperadoresAsignados().get(0));
     }
 
     @Test
@@ -155,9 +211,10 @@ public class ParqueTest {
         agregarAtraccion();
         String nombreZona = "zona1";
         String nombreAtraccion = "atraccion1";
+        String motivoCierre = "cierre";
         EstadoAtraccion estadoAtraccion = EstadoAtraccion.ACTIVA;
 
-        parque.cambiarEstadoAtraccion(nombreZona, nombreAtraccion, estadoAtraccion);
+        parque.cambiarEstadoAtraccion(nombreZona, nombreAtraccion, estadoAtraccion, motivoCierre);
 
         Atraccion atraccionEncontrada = parque.obtenerAtraccion(nombreZona, nombreAtraccion);
         assertEquals(estadoAtraccion, atraccionEncontrada.getEstadoAtraccion());
@@ -181,6 +238,24 @@ public class ParqueTest {
         assertEquals(4, atraccion.getColaVirtual().size());
     }
 
+    @Test
+    void alertaClimatica (){
+        comprarTicket();
+        agregarAtraccion();
+        String documento = "123";
+        String nombreZona = "zona1";
+        String nombreAtraccion = "atraccion1";
+        String motivo = "Tormenta";
+
+        parque.activarAlertaClimatica(motivo);
+
+        Atraccion atraccion = parque.obtenerAtraccion(nombreZona, nombreAtraccion);
+        Visitante visitante = parque.obtenerVisitante(documento);
+        
+        assertEquals(EstadoAtraccion.CERRADA, atraccion.getEstadoAtraccion());
+        assertNotNull(visitante.getNotificaciones());
+    }
+
     // Pruebas de Zonas y Atracciones
 
     @Test
@@ -200,7 +275,7 @@ public class ParqueTest {
         double alturaMinima = 1.50;
         double costoAdicional = 0;
         int tiempoEspera = 5;
-        TipoAtraccion tipoAtraccion = TipoAtraccion.MECANICA;
+        TipoAtraccion tipoAtraccion = TipoAtraccion.MECANICA_ALTURA;
         String nombreZona = "zona1";
 
         parque.agregarAtraccion(nombreAtraccion, capacidadMaxima, edadMinima, alturaMinima, costoAdicional, 
@@ -226,7 +301,7 @@ public class ParqueTest {
 
     @Test
     void validarAcceso (){
-        agregarAtraccion();
+        cambiarEstadoAtraccion();
         comprarTicket();
 
         String documento = "123";

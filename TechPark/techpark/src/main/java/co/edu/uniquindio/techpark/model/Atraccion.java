@@ -13,10 +13,9 @@ public class Atraccion {
     private RequisitosSeguridad requisitosSeguridad;
     private double costoAdicional;
     private int visitantesAcumulados;
-    private int tiempoEspera;
-    private int tiempoEsperaTotal;
+    private int tiempoEsperaSegundos;
     private String motivoCierre;
-    private List<String> listaDocumentoOperadoresAsignados;
+    private List<Operador> listaOperadoresAsignados;
     private TipoAtraccion tipoAtraccion;
     private EstadoAtraccion estadoAtraccion;
     private static int contador = 0;
@@ -33,12 +32,11 @@ public class Atraccion {
         this.capacidadMaxima = capacidadMaxima;
         this.requisitosSeguridad = requisitosSeguridad;
         this.costoAdicional = costoAdicional;
-        this.tiempoEspera = tiempoEspera;
+        this.tiempoEsperaSegundos = tiempoEspera;
         this.tipoAtraccion = tipoAtraccion;
         this.visitantesAcumulados = 0;
-        this.tiempoEsperaTotal = 0;
         this.motivoCierre = "";
-        this.listaDocumentoOperadoresAsignados = new ArrayList<>();
+        this.listaOperadoresAsignados = new ArrayList<>();
         this.estadoAtraccion = EstadoAtraccion.CERRADA;
     }
 
@@ -63,15 +61,15 @@ public class Atraccion {
         colaVirtual.remove(visitante);
     }
 
-    public void asignarOperador (String documento){
-        if (listaDocumentoOperadoresAsignados.contains(documento)){
-            designarOperador(documento);
+    public void asignarOperador (Operador operador){
+        if (listaOperadoresAsignados.contains(operador)){
+            designarOperador(operador);
         }
-        listaDocumentoOperadoresAsignados.add(documento);
+        listaOperadoresAsignados.add(operador);
     }
 
-    public void designarOperador (String documento){
-        listaDocumentoOperadoresAsignados.remove(documento);
+    public void designarOperador (Operador operador){
+        listaOperadoresAsignados.remove(operador);
     }
 
     //getters y setters
@@ -81,11 +79,7 @@ public class Atraccion {
     }
 
     public int getTiempoEsperaTotal() {
-        return tiempoEsperaTotal;
-    }
-
-    public void setTiempoEsperaTotal(int tiempoEsperaTotal) {
-        this.tiempoEsperaTotal = tiempoEsperaTotal;
+        return tiempoEsperaSegundos + ((colaVirtual.size()/capacidadMaxima)*tiempoEsperaSegundos);
     }
 
     public PriorityQueue<Visitante> getColaVirtual() {
@@ -128,12 +122,12 @@ public class Atraccion {
         this.visitantesAcumulados = visitantesAcumulados;
     }
 
-    public int getTiempoEspera() {
-        return tiempoEspera;
+    public int getTiempoEsperaSegundos() {
+        return tiempoEsperaSegundos;
     }
 
-    public void setTiempoEspera(int tiempoEspera) {
-        this.tiempoEspera = tiempoEspera;
+    public void setTiempoEsperaSegundos(int tiempoEspera) {
+        this.tiempoEsperaSegundos = tiempoEspera;
     }
 
     public String getMotivoCierre() {
@@ -160,7 +154,7 @@ public class Atraccion {
         this.estadoAtraccion = estadoAtraccion;
     }
 
-    public List<String> getListaDocumentoOperadoresAsignados() {
-        return listaDocumentoOperadoresAsignados;
+    public List<Operador> getListaOperadoresAsignados() {
+        return listaOperadoresAsignados;
     }
 }

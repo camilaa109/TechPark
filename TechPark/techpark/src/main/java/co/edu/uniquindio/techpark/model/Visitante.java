@@ -27,6 +27,14 @@ public class Visitante extends Persona {
         this.notificaciones = new ArrayList<>();
     }
 
+    public void eliminarNotificacion (String idNotificacion){
+        for (int i = 0; i < notificaciones.size(); i++){
+            if (notificaciones.get(i).id().equals(idNotificacion)){
+                notificaciones.remove(i);
+            }
+        }
+    }
+
     public void recibirNotificacion(Notificacion notificacion) {
         notificaciones.add(notificacion);
     }   

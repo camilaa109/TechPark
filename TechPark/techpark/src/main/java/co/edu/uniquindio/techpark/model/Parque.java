@@ -11,6 +11,7 @@ public class Parque{
     private List<Zona> listaZonas; 
     private List<Visitante> listaVisitantes; 
     private List<Empleado> listaEmpleados;
+    private int contadorNotificaciones = 0;
 
     //Constructor
     public Parque(String nombre, int capacidadMaxima) {
@@ -21,8 +22,25 @@ public class Parque{
         this.listaEmpleados = new ArrayList<Empleado>();
     }
 
+    public Rol inicioSesion(String documento, String contrasenia) {
+        Persona p;
+        if (!existePersona(documento)){
+            return null;
+        }
+
+        p = obtenerVisitante(documento);
+        if (p == null){
+            p = obtenerOperador(documento);
+            return Rol.OPERADOR;
+        }
+        return Rol.VISITANTE;
+    }
+
     //funciones para visitantes
     public boolean agregarVisitante (String nombre, String documento, int edad, String contrasenia, double estatura){
+        if (existePersona(documento)){
+            return false;
+        }
         Visitante visitante = new Visitante(nombre, documento, edad, contrasenia, estatura);
         listaVisitantes.add(visitante);
         return true;
@@ -65,6 +83,7 @@ public class Parque{
             || ticket == null 
             || atraccion.getEstadoAtraccion() == EstadoAtraccion.CERRADA
             || atraccion.getEstadoAtraccion() == EstadoAtraccion.EN_MANTENIMIENTO){
+
             return false;
         }
         if (atraccion.getCostoAdicional() > 0){
@@ -102,6 +121,23 @@ public class Parque{
         return visitantesActivos;
     }
 
+    public List<Notificacion> obtenerNotificaciones (String documento){
+        Visitante visitante = obtenerVisitante(documento);
+        List<Notificacion> notificaciones = new ArrayList<>(visitante.getNotificaciones());
+        //visitante.getNotificaciones().clear();
+        return notificaciones;
+    }
+
+    public void eliminarNotificacion(String documento, String idNotificacion) {
+        Visitante visitante = obtenerVisitante(documento);
+        visitante.eliminarNotificacion(idNotificacion);
+    }
+
+    public int consultarTiempoEspera(String nombreZona, String nombreAtraccion) {
+        Atraccion atraccion = obtenerAtraccion(nombreZona, nombreAtraccion);
+        return atraccion.getTiempoEsperaTotal();
+    }
+
     //Funciones para empleados
     public void registrarOperador(String nombre, String documento, int edad, String contrasenia) {
         Operador operador = new Operador(nombre, documento, edad, contrasenia);
@@ -117,10 +153,15 @@ public class Parque{
         return null;
     }
 
+    public void eliminarOperador (String documento){
+        Operador operador = obtenerOperador(documento);
+        listaEmpleados.remove(operador);
+    }
+
     public void asignarOperador(String documento, String nombreZona, String nombreAtraccion) {
         Atraccion atraccion = obtenerAtraccion(nombreZona, nombreAtraccion);
-        atraccion.asignarOperador(documento);
         Operador operador = obtenerOperador(documento);
+        atraccion.asignarOperador(operador);
         operador.setNombreZonaAsignada(nombreZona);
         operador.setNombreAtraccionAsignada(nombreAtraccion);
     }
@@ -128,14 +169,39 @@ public class Parque{
     public void registrarRevision(String nombreZona, String nombreAtraccion) {
         Atraccion atraccion = obtenerAtraccion(nombreZona, nombreAtraccion);
         atraccion.setEstadoAtraccion(EstadoAtraccion.ACTIVA);
-        notificarVisitantes(obtenerVisitantesActivos(), nombreAtraccion, "Una Atracción ha vuelto", 
+        notificarVisitantes(obtenerVisitantesActivos(), "Una Atracción ha vuelto", 
             "Atracción " + nombreAtraccion + " se encuentra de nuevo en funcionamiento.");
     }
 
+    public void cerraAtraccion(String nombreZona, String nombreAtraccion, String motivoCierre){
+        Atraccion atraccion = obtenerAtraccion(nombreZona, nombreAtraccion);
+        cambiarEstadoAtraccion(atraccion, EstadoAtraccion.CERRADA, motivoCierre);
+        notificarVisitantes(obtenerVisitantesActivos(), "Cierre de atraccion", 
+            "La atraccion " + nombreAtraccion + " se ha cerrado por motivos de " + motivoCierre);
+    }
+
+    public void abrirAtraccion(String nombreZona, String nombreAtraccion){
+        Atraccion atraccion = obtenerAtraccion(nombreZona, nombreAtraccion);
+        cambiarEstadoAtraccion(atraccion, EstadoAtraccion.ACTIVA, "");
+        notificarVisitantes(obtenerVisitantesActivos(), "Apertura de atraccion", 
+            "La atraccion " + nombreAtraccion + " esta en funcionamiento");
+    }
+
+    public void cambiarEstadoAtraccion(String nombreZona, String nombreAtraccion, EstadoAtraccion estadoAtraccion, String motivoCierre) {
+        Atraccion atraccion = obtenerAtraccion(nombreZona, nombreAtraccion);
+        cambiarEstadoAtraccion(atraccion, estadoAtraccion, motivoCierre);
+    }
+    
     public void cambiarEstadoAtraccion(String nombreZona, String nombreAtraccion, EstadoAtraccion estadoAtraccion) {
         Atraccion atraccion = obtenerAtraccion(nombreZona, nombreAtraccion);
         atraccion.setEstadoAtraccion(estadoAtraccion);
     }
+
+    private void cambiarEstadoAtraccion(Atraccion atraccion, EstadoAtraccion estadoAtraccion, String motivoCierre) {
+        atraccion.setEstadoAtraccion(estadoAtraccion);
+        atraccion.setMotivoCierre(motivoCierre);
+    }
+
 
     public void realizarCicloAtraccion(String nombreZona, String nombreAtraccion) {
         Atraccion atraccion = obtenerAtraccion(nombreZona, nombreAtraccion);
@@ -143,16 +209,25 @@ public class Parque{
         if (proximosVisitantes.isEmpty()){
             return;
         }
-        notificarVisitantes(proximosVisitantes, nombreAtraccion, "Es tu turno", 
+        notificarVisitantes(proximosVisitantes, "Es tu turno", 
             "Acercate a la atracción: " + nombreAtraccion);
         verificarMantenimiento();
     }
 
-    private void notificarVisitantes(List<Visitante> visitantes, String nombreAtraccion, String titulo, String mensaje) {
-        for (Visitante v : visitantes){
-            Notificable notificacion = new Notificacion(titulo, mensaje, LocalDateTime.now());
-            notificacion.enviar(v);
+    public void activarAlertaClimatica (String motivo){
+        String atraccionesLista = "";
+        for (Zona z : listaZonas){
+            for (Atraccion a : z.obtenerAtraccioneTipo(TipoAtraccion.ACUATICA)){
+                cambiarEstadoAtraccion(a, EstadoAtraccion.CERRADA, motivo);
+                atraccionesLista += a.getNombreAtraccion() + "\n";
+            }
+            for (Atraccion a : z.obtenerAtraccioneTipo(TipoAtraccion.MECANICA_ALTURA)){
+                cambiarEstadoAtraccion(a, EstadoAtraccion.CERRADA, motivo);
+                atraccionesLista += a.getNombreAtraccion() + "\n";
+            }
         }
+        notificarVisitantes(obtenerVisitantesActivos(), "Cierre por Alerta Climatica", 
+            "Las atracciones: \n" + atraccionesLista + " se cierran por " + motivo);
     }
 
     //Funciones para atracciones y zonas
@@ -195,11 +270,33 @@ public class Parque{
             for (Atraccion a : z.getListaAtracciones()){
                 if (a.getVisitantesAcumulados() >= 500){
                     a.setEstadoAtraccion(EstadoAtraccion.EN_MANTENIMIENTO);
-                    notificarVisitantes(obtenerVisitantesActivos(), a.getNombreAtraccion(), "Cierre de Atracción", 
+                    notificarVisitantes(obtenerVisitantesActivos(), "Cierre de Atracción", 
                     "Atracción " + a.getNombreAtraccion() + " se encuentra en mantenimiento.");
                 }
             }
         }
+    }
+
+    private void notificarVisitantes(List<Visitante> visitantes, String titulo, String mensaje) {
+        for (Visitante v : visitantes){
+            Notificable notificacion = new Notificacion("notificacion_"+contadorNotificaciones++, titulo, 
+                mensaje, LocalDateTime.now());
+            notificacion.enviar(v);
+        }
+    }
+
+    private boolean existePersona (String documento){
+        for (Visitante v : listaVisitantes){
+            if (v.getDocumento().equals(documento)){
+                return true;
+            }
+        }
+        for (Empleado e : listaEmpleados){
+            if (e.getDocumento().equals(documento)){
+                return true;
+            }
+        }
+        return false;
     }
 
     //Getters

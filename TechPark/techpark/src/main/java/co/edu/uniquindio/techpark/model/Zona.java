@@ -19,6 +19,16 @@ public class Zona {
         this.listaIdOperadores = new ArrayList<>();
     }
 
+    public List<Atraccion> obtenerAtraccioneTipo (TipoAtraccion tipoAtraccion){
+        List<Atraccion> atracciones = new ArrayList<>();
+        for (Atraccion a : listaAtracciones){
+            if (a.getTipoAtraccion().equals(tipoAtraccion)){
+                atracciones.add(a);
+            }
+        }
+        return atracciones;
+    }
+
     public void agregarAtraccion (Atraccion atraccion){
         listaAtracciones.add(atraccion);
     }
