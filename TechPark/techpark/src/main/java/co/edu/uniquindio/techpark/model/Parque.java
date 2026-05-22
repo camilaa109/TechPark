@@ -153,6 +153,14 @@ public class Parque{
         return null;
     }
 
+     public void actualizarOperador(String nombre, String documento, int edad, String contrasenia) {
+        Operador operador = obtenerOperador(documento);
+        operador.setContrasenia(contrasenia);
+        operador.setDocumento(documento);
+        operador.setEdad(edad);
+        operador.setNombre(nombre);
+    }
+
     public void eliminarOperador (String documento){
         Operador operador = obtenerOperador(documento);
         listaEmpleados.remove(operador);

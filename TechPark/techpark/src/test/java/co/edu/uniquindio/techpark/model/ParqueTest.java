@@ -1,14 +1,13 @@
 package co.edu.uniquindio.techpark.model;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 import co.edu.uniquindio.techpark.util.ServicioLectura;
@@ -153,7 +152,7 @@ public class ParqueTest {
     // Pruebas de empleados
     
     @Test
-    void registroOperadores (){
+    void registroOperador (){
         String nombre = "Pablo";
         String documento = "234";
         int edad = 30;
@@ -166,8 +165,23 @@ public class ParqueTest {
     }
 
     @Test
+    void actualizarOperador (){
+        registroOperador();
+        String documento = "234";
+        Operador operador = parque.obtenerOperador(documento);
+        String nombre = "Juan";
+        int edad = operador.getEdad();
+        String contrasenia = operador.getContrasenia();
+        
+        parque.actualizarOperador(nombre, documento, edad, contrasenia);
+
+        operador = parque.obtenerOperador(documento);
+        assertEquals(nombre, operador.getNombre());
+    }
+
+    @Test
     void eliminarOperador (){
-        registroOperadores();
+        registroOperador();
         String documento = "234";
 
         parque.eliminarOperador(documento);
@@ -178,7 +192,7 @@ public class ParqueTest {
 
     @Test
     void asignarOperador (){
-        registroOperadores();
+        registroOperador();
         agregarZona();
         agregarAtraccion();
         
@@ -314,4 +328,6 @@ public class ParqueTest {
         Atraccion atraccionEncontrada = parque.obtenerAtraccion(nombreZona, nombreAtraccion);
         assertEquals(documento, atraccionEncontrada.getColaVirtual().poll().getDocumento());
     }
+
+
 }
