@@ -61,6 +61,18 @@ public class Zona {
         return nombreZona;
     }
 
+    public void setListaAtracciones(List<Atraccion> listaAtracciones) {
+        this.listaAtracciones = listaAtracciones;
+    }
+
+    public void setListaOperadores(List<Operador> listaOperadores) {
+        this.listaOperadores = listaOperadores;
+    }
+
+    public void setIdZona(String idZona) {
+        this.idZona = idZona;
+    }
+
     public void setNombreZona(String nombreZona) {
         this.nombreZona = nombreZona;
     }

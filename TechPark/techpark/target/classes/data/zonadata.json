@@ -1,32 +1,26 @@
-[
-  {
-    "idZona": "ZONA_EXTREMA",
-    "nombreZona": "Zona Extrema",
-    "listaAtracciones": [],
-    "listaOperadores": []
-  },
-  {
-    "idZona": "ZONA_INFANTIL",
-    "nombreZona": "Zona Infantil",
-    "listaAtracciones": [],
-    "listaOperadores": []
-  },
-  {
-    "idZona": "ZONA_FAMILIAR",
-    "nombreZona": "Zona Familiar y Aventura",
-    "listaAtracciones": [],
-    "listaOperadores": []
-  },
-  {
-    "idZona": "ZONA_ACUATICA",
-    "nombreZona": "Zona Acuatica",
-    "listaAtracciones": [],
-    "listaOperadores": []
-  },
-  {
-    "idZona": "ZONA_SHOWS",
-    "nombreZona": "Zona de Shows y Tecnologia",
-    "listaAtracciones": [],
-    "listaOperadores": []
-  }
-]
+[ {
+  "idZona" : "ZONA_EXTREMA",
+  "nombreZona" : "Zona Extrema",
+  "listaAtracciones" : [ ],
+  "listaOperadores" : [ ]
+}, {
+  "idZona" : "ZONA_INFANTIL",
+  "nombreZona" : "Zona Infantil",
+  "listaAtracciones" : [ ],
+  "listaOperadores" : [ ]
+}, {
+  "idZona" : "ZONA_FAMILIAR",
+  "nombreZona" : "Zona Familiar y Aventura",
+  "listaAtracciones" : [ ],
+  "listaOperadores" : [ ]
+}, {
+  "idZona" : "ZONA_ACUATICA",
+  "nombreZona" : "Zona Acuatica",
+  "listaAtracciones" : [ ],
+  "listaOperadores" : [ ]
+}, {
+  "idZona" : "ZONA_SHOWS",
+  "nombreZona" : "Zona de Shows y Tecnologia",
+  "listaAtracciones" : [ ],
+  "listaOperadores" : [ ]
+} ]

@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.edu.uniquindio.techpark.util.ServicioEscritura;
+import co.edu.uniquindio.techpark.util.ServicioLectura;
+
 public class Parque{
 
     private String nombre;
@@ -153,7 +156,7 @@ public class Parque{
 
     public int consultarTiempoEspera(String nombreZona, String nombreAtraccion) {
         Atraccion atraccion = obtenerAtraccion(nombreZona, nombreAtraccion);
-        return atraccion.getTiempoEsperaTotal();
+        return atraccion.calcularTiempoEsperaTotal();
     }
 
     //Funciones para empleados
@@ -334,6 +337,21 @@ public class Parque{
         }
         return false;
     }
+
+    //Persitencia
+    public void cargarDatos(){
+        setListaVisitantes(ServicioLectura.leerDatosVisitantes());
+        getListaEmpleados().addAll(ServicioLectura.leerDatosOperadores());
+        setListaZonas(ServicioLectura.leerDatosZonas());
+        setAtracciones(ServicioLectura.leerDatosAtracciones());
+    }
+
+    public void guardarDatos(){
+        ServicioEscritura.guardarVisitantes(getListaVisitantes());
+        ServicioEscritura.guardarOperadores(obtenerListaOperadores());
+        ServicioEscritura.guardarZonas(getListaZonas());
+    }
+
 
     //Getters
     public String getNombre() {

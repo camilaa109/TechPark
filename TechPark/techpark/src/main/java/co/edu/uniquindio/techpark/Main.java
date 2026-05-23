@@ -1,5 +1,7 @@
 package co.edu.uniquindio.techpark;
 
+import co.edu.uniquindio.techpark.controller.ParqueController;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,29 +13,31 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            // 1. Cargar el archivo FXML (la Vista)
-            // Cambia "VistaPrincipal.fxml" por la ruta de tu archivo
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/InicioSesionView.fxml"));
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/view/InicioSesionView.fxml")
+            );
             Parent root = loader.load();
 
-            // Nota: El Controlador se vincula automáticamente si pusiste 
-            // fx:controller="tu.paquete.TuControlador" en la etiqueta raíz del FXML.
+            primaryStage.setOnCloseRequest(event -> 
+                ParqueController.getParque().guardarDatos()
+            );
 
-            // 2. Crear la Escena con el nodo raíz del FXML
             Scene scene = new Scene(root);
-
-            // 3. Configurar el Escenario (Stage)
             primaryStage.setTitle("TechPark");
             primaryStage.setScene(scene);
             primaryStage.show();
-            
-        } catch(Exception e) {
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @Override
+    public void stop() {
+        ParqueController.getParque().guardarDatos();
+    }
+
     public static void main(String[] args) {
-        // El main solo se encarga de lanzar la aplicación
         launch(args);
     }
 }

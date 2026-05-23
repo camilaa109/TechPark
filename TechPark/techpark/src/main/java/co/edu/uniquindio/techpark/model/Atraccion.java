@@ -106,7 +106,7 @@ public class Atraccion {
         this.colaVirtual = colaVirtual;
     }
 
-    public int getTiempoEsperaTotal() {
+    public int calcularTiempoEsperaTotal() {
         return tiempoEsperaSegundos + ((colaVirtual.size()/capacidadMaxima)*tiempoEsperaSegundos);
     }
 
