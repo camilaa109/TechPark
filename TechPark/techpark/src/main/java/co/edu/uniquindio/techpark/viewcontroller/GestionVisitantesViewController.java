@@ -202,19 +202,19 @@ public class GestionVisitantesViewController {
     @FXML
     public void onIrAOperadores() {
         NavegadorUtil.irA((Stage) btnIrOperadores.getScene().getWindow(),
-            "/fxml/GestionOperadores.fxml");
+            "/view/GestionOperadoresView.fxml");
     }
 
     @FXML
     public void onIrAZonas() {
         NavegadorUtil.irA((Stage) btnIrZonas.getScene().getWindow(),
-            "/fxml/GestionZonasAtracciones.fxml");
+            "/view/GestionZonasAtraccionesView.fxml");
     }
 
     @FXML
     public void onCerrarSesion() {
         new ParqueController().cerrarSesion();
         NavegadorUtil.irA((Stage) btnCerrarSesion.getScene().getWindow(),
-            "/fxml/InicioSesion.fxml");
+            "/view/InicioSesionView.fxml");
     }
 }

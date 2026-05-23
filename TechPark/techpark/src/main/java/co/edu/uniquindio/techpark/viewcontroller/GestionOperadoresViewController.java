@@ -98,7 +98,6 @@ public class GestionOperadoresViewController {
     }
 
     private void cargarOperadores() {
-        // CORREGIDO: Se obtiene la lista de operadores de manera segura a través de la instancia del parque
         List<Operador> lista = ParqueController.getParque().obtenerListaOperadores();
         tableOperadores.setItems(FXCollections.observableArrayList(lista));
     }
@@ -122,7 +121,6 @@ public class GestionOperadoresViewController {
     }
 
     private void cargarAtracciones(String nombreZona) {
-        // CORREGIDO: Para mantener desacoplamiento, usamos las zonas de atraccionController
         List<Zona> zonas = atraccionController.obtenerZonas();
         
         List<String> nombres = zonas.stream()
@@ -286,19 +284,19 @@ public class GestionOperadoresViewController {
     @FXML
     public void onIrAVisitantes() {
         NavegadorUtil.irA((Stage) btnIrVisitantes.getScene().getWindow(),
-            "/fxml/GestionVisitantes.fxml");
+            "/view/GestionVisitantesView.fxml");
     }
 
     @FXML
     public void onIrAZonas() {
         NavegadorUtil.irA((Stage) btnIrZonas.getScene().getWindow(),
-            "/fxml/GestionZonasAtracciones.fxml");
+            "/view/GestionZonasAtraccionesView.fxml");
     }
 
     @FXML
     public void onCerrarSesion() {
         new ParqueController().cerrarSesion();
         NavegadorUtil.irA((Stage) btnCerrarSesion.getScene().getWindow(),
-            "/fxml/InicioSesion.fxml");
+            "/view/InicioSesionView.fxml");
     }
 }

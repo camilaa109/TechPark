@@ -33,7 +33,7 @@ public class GestionZonasAtraccionesViewController {
     private String    zonaDeAtraccionSeleccionada;
 
     // =========================================================================
-    // Campos de la vista vinculados al archivo FXML
+    // Campos de la vista vinculados al archivo view
     // =========================================================================
 
     // --- Sección Zonas ---
@@ -286,17 +286,17 @@ public class GestionZonasAtraccionesViewController {
 
     @FXML
     public void onIrAVisitantes() {
-        NavegadorUtil.irA((Stage) btnIrVisitantes.getScene().getWindow(), "/fxml/GestionVisitantes.fxml");
+        NavegadorUtil.irA((Stage) btnIrVisitantes.getScene().getWindow(), "/view/GestionVisitantesView.fxml");
     }
 
     @FXML
     public void onIrAOperadores() {
-        NavegadorUtil.irA((Stage) btnIrOperadores.getScene().getWindow(), "/fxml/GestionOperadores.fxml");
+        NavegadorUtil.irA((Stage) btnIrOperadores.getScene().getWindow(), "/view/GestionOperadoresView.fxml");
     }
 
     @FXML
     public void onCerrarSesion() {
         new ParqueController().cerrarSesion();
-        NavegadorUtil.irA((Stage) btnCerrarSesion.getScene().getWindow(), "/fxml/InicioSesion.fxml");
+        NavegadorUtil.irA((Stage) btnCerrarSesion.getScene().getWindow(), "/view/InicioSesionView.fxml");
     }
 }

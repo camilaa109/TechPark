@@ -15,6 +15,14 @@
   "tipoTicket" : "FAST_PASS",
   "estadoTicket" : "ACTIVO"
 }, {
+  "idTicket" : "11928374GENERAL1",
+  "idVisitante" : "11928374",
+  "precioTicket" : 100.0,
+  "fechaTicket" : null,
+  "descuento" : 0.0,
+  "tipoTicket" : "GENERAL",
+  "estadoTicket" : "ACTIVO"
+}, {
   "idTicket" : "10475839FAMILIAR2",
   "idVisitante" : "10475839",
   "precioTicket" : 35.0,

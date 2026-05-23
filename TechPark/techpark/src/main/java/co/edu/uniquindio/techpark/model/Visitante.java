@@ -57,7 +57,9 @@ public class Visitante extends Persona {
     }
 
     public void agregarFavorito (String nombreAtraccion){
-        listaFavoritos.add(nombreAtraccion);
+        if (!listaFavoritos.contains(nombreAtraccion)) {
+            listaFavoritos.add(nombreAtraccion);
+        }
     }
 
     //getters y setters
@@ -65,7 +67,7 @@ public class Visitante extends Persona {
         return listaTickets;
     }
 
-    public List<String> getListaNombreFavoritos() {
+    public List<String> getListaFavoritos() {
         return listaFavoritos;
     }
 
@@ -89,10 +91,6 @@ public class Visitante extends Persona {
         this.listaTickets = listaTickets;
     }
 
-    public List<String> getListaFavoritos() {
-        return listaFavoritos;
-    }
-
     public void setListaFavoritos(List<String> listaFavoritos) {
         this.listaFavoritos = listaFavoritos;
     }
@@ -103,5 +101,5 @@ public class Visitante extends Persona {
 
     public void setNotificaciones(List<Notificacion> notificaciones) {
         this.notificaciones = notificaciones;
-    } 
+    }
 }

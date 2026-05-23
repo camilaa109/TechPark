@@ -8,12 +8,12 @@
     "alturaMinima" : 1.4
   },
   "costoAdicional" : 15.0,
-  "visitantesAcumulados" : 1250,
-  "tiempoEsperaSegundos" : 600,
+  "visitantesAcumulados" : 1251,
+  "tiempoEsperaSegundos" : 60,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "MECANICA_ALTURA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR4",
@@ -26,7 +26,7 @@
   },
   "costoAdicional" : 12.0,
   "visitantesAcumulados" : 640,
-  "tiempoEsperaSegundos" : 900,
+  "tiempoEsperaSegundos" : 90,
   "motivoCierre" : "Mantenimiento preventivo de cables",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "MECANICA_ALTURA",
@@ -42,7 +42,7 @@
     "alturaMinima" : 1.55
   },
   "costoAdicional" : 18.0,
-  "visitantesAcumulados" : 420,
+  "visitantesAcumulados" : 42,
   "tiempoEsperaSegundos" : 1200,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -59,7 +59,7 @@
     "alturaMinima" : 1.45
   },
   "costoAdicional" : 12.0,
-  "visitantesAcumulados" : 810,
+  "visitantesAcumulados" : 80,
   "tiempoEsperaSegundos" : 850,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -76,7 +76,7 @@
     "alturaMinima" : 0.9
   },
   "costoAdicional" : 0.0,
-  "visitantesAcumulados" : 3400,
+  "visitantesAcumulados" : 90,
   "tiempoEsperaSegundos" : 120,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -93,7 +93,7 @@
     "alturaMinima" : 0.95
   },
   "costoAdicional" : 0.0,
-  "visitantesAcumulados" : 1750,
+  "visitantesAcumulados" : 60,
   "tiempoEsperaSegundos" : 150,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -115,7 +115,7 @@
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "MECANICA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR2",
@@ -127,7 +127,7 @@
     "alturaMinima" : 1.2
   },
   "costoAdicional" : 5.0,
-  "visitantesAcumulados" : 890,
+  "visitantesAcumulados" : 70,
   "tiempoEsperaSegundos" : 300,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -145,11 +145,11 @@
   },
   "costoAdicional" : 0.0,
   "visitantesAcumulados" : 2100,
-  "tiempoEsperaSegundos" : 450,
+  "tiempoEsperaSegundos" : 90,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "MECANICA_ALTURA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR7",
@@ -166,7 +166,7 @@
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "MECANICA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR8",
@@ -183,7 +183,7 @@
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "SHOW",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR15",
@@ -200,7 +200,7 @@
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "OTRO",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR16",
@@ -217,7 +217,7 @@
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "MECANICA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR17",
@@ -234,7 +234,7 @@
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "MECANICA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR19",
@@ -251,7 +251,7 @@
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "OTRO",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR6",
@@ -268,7 +268,7 @@
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "ACUATICA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR10",
@@ -285,7 +285,7 @@
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "ACUATICA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR13",
@@ -302,7 +302,7 @@
   "motivoCierre" : "Clima adverso - Tormenta eléctrica",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "ACUATICA",
-  "estadoAtraccion" : "CERRADA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR20",
@@ -314,7 +314,7 @@
     "alturaMinima" : 1.1
   },
   "costoAdicional" : 10.0,
-  "visitantesAcumulados" : 530,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 600,
   "motivoCierre" : "Falla en el sensor de escotilla",
   "listaOperadoresAsignados" : [ ],
@@ -331,12 +331,12 @@
     "alturaMinima" : 1.35
   },
   "costoAdicional" : 3.0,
-  "visitantesAcumulados" : 1670,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 400,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "ACUATICA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR5",
@@ -348,12 +348,12 @@
     "alturaMinima" : 1.1
   },
   "costoAdicional" : 8.0,
-  "visitantesAcumulados" : 1560,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 200,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "SHOW",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR12",
@@ -365,12 +365,12 @@
     "alturaMinima" : 0.0
   },
   "costoAdicional" : 0.0,
-  "visitantesAcumulados" : 5400,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 0,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "SHOW",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR18",
@@ -382,12 +382,12 @@
     "alturaMinima" : 0.0
   },
   "costoAdicional" : 0.0,
-  "visitantesAcumulados" : 8900,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 0,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "SHOW",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR21",
@@ -399,12 +399,12 @@
     "alturaMinima" : 1.0
   },
   "costoAdicional" : 5.0,
-  "visitantesAcumulados" : 2900,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 300,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "SHOW",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR24",
@@ -416,11 +416,11 @@
     "alturaMinima" : 0.0
   },
   "costoAdicional" : 0.0,
-  "visitantesAcumulados" : 4300,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 0,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "OTRO",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 } ]

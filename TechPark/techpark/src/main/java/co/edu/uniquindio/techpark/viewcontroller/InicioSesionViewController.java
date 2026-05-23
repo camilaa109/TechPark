@@ -56,22 +56,20 @@ public class InicioSesionViewController {
             return;
         }
 
-        // CORREGIDO: Redirección usando los ENUMS exactos declarados en tu backend
         Stage stage = (Stage) btnIniciarSesion.getScene().getWindow();
         switch (rol) {
-            case VISITANTE -> NavegadorUtil.irA(stage, "/fxml/PanelVisitante.fxml");
-            case OPERADOR  -> NavegadorUtil.irA(stage, "/fxml/PanelOperador.fxml");
-            case ADMINISTRADOR     -> NavegadorUtil.irA(stage, "/fxml/GestionVisitantes.fxml"); // Cambiado de ADMINISTRADOR a ADMIN por consistencia
+            case VISITANTE -> NavegadorUtil.irA(stage, "/view/PanelVisitanteView.fxml");
+            case OPERADOR  -> NavegadorUtil.irA(stage, "/view/PanelOperadorView.fxml");
+            case ADMINISTRADOR     -> NavegadorUtil.irA(stage, "/view/GestionVisitantesView.fxml");
         }
     }
 
     /**
      * Acción del enlace/botón "¿No tienes cuenta? Regístrate".
-     * COMPLETADO: Se añade el flujo de navegación hacia la vista de registro.
      */
     @FXML
     public void onIrARegistro() {
         Stage stage = (Stage) btnIniciarSesion.getScene().getWindow();
-        NavegadorUtil.irA(stage, "/fxml/RegistroVisitante.fxml");
+        NavegadorUtil.irA(stage, "/view/RegistroVisitanteView.fxml");
     }
 }

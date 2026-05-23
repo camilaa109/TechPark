@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox prefHeight="650.0" prefWidth="850.0" spacing="0.0" style="-fx-background-color: #f4f7f6;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.techpark.viewcontroller.PanelOperadorViewController">
+   <children>
+      
+      <HBox alignment="CENTER_LEFT" prefHeight="70.0" spacing="20.0" style="-fx-background-color: #2c3e50; -fx-padding: 0 30 0 30;">
+         <children>
+            <Label text="TechPark | Panel de Operaciones" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <HBox HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnCerrarSesion" mnemonicParsing="false" onAction="#onCerrarSesion" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Cerrar Sesión">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <padding>
+                  <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+               </padding>
+            </Button>
+         </children>
+      </HBox>
+
+      <VBox spacing="25.0" VBox.vgrow="ALWAYS">
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+         <children>
+            
+            <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #3498db; -fx-background-radius: 50;">
+                     <children>
+                        <Label text="OP" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lblNombreOperador" text="Operador: Cargando..." textFill="#2c3e50">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <HBox spacing="20.0">
+                           <children>
+                              <Label fx:id="lblDocumentoOperador" text="Documento: --" textFill="#7f8c8d" />
+                              <Label fx:id="lblAtraccionAsignada" text="Asignado a: --" textFill="#34495e" style="-fx-font-weight: bold;" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+
+            <VBox fx:id="panelGestionAtraccion" spacing="20.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        
+                        <VBox prefWidth="350.0" spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                           <children>
+                              <Label text="Ficha Técnica en Vivo" textFill="#2c3e50">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Separator />
+                              <VBox spacing="12.0">
+                                 <children>
+                                    <Label fx:id="lblNombreAtraccion" text="Nombre Atracción" textFill="#3498db">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblEstadoAtraccion" text="Estado: --" style="-fx-background-color: #ecf0f1; -fx-padding: 5 10; -fx-background-radius: 15;" />
+                                    <Label fx:id="lblCapacidadAtraccion" text="Capacidad máxima: --" textFill="#7f8c8d" />
+                                    <VBox alignment="CENTER" prefHeight="100.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dcdde1; -fx-border-radius: 5;">
+                                       <children>
+                                          <Label fx:id="lblTamanioCola" text="0" textFill="#2c3e50">
+                                             <font>
+                                                <Font name="System Bold" size="40.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Personas en Cola Virtual" textFill="#95a5a6">
+                                             <font>
+                                                <Font size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+
+                        <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              
+                              <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                                 <children>
+                                    <Label text="Operación de Turnos" textFill="#2c3e50">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox spacing="15.0">
+                                       <children>
+                                          <Button fx:id="btnRealizarCiclo" maxWidth="Infinity" mnemonicParsing="false" onAction="#onRealizarCiclo" prefHeight="50.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="▶ REALIZAR CICLO" HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="btnRegistrarRevision" maxWidth="Infinity" mnemonicParsing="false" onAction="#onRegistrarRevision" prefHeight="50.0" style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-cursor: hand;" text="⚙ REGISTRAR REVISIÓN" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+
+                              <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                                 <children>
+                                    <Label text="Control de Estado" textFill="#2c3e50">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="txtMotivoCierre" prefHeight="35.0" promptText="Escriba aquí el motivo si va a cerrar la atracción..." />
+                                          <HBox spacing="15.0">
+                                             <children>
+                                                <Button fx:id="btnAbrirAtraccion" maxWidth="Infinity" mnemonicParsing="false" onAction="#onAbrirAtraccion" prefHeight="40.0" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold;" text="ABRIR AL PÚBLICO" HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="btnCerrarAtraccion" maxWidth="Infinity" mnemonicParsing="false" onAction="#onCerrarAtraccion" prefHeight="40.0" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold;" text="CERRAR ATRACCIÓN" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>

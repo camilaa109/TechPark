@@ -20,14 +20,16 @@ public class Atraccion {
     private TipoAtraccion tipoAtraccion;
     private EstadoAtraccion estadoAtraccion;
     private static int contador = 0;
-    private PriorityQueue<Visitante> colaVirtual = new PriorityQueue<>((v1, v2) -> {
-    int p1 = v1.obtenerTicket(EstadoTicket.ACTIVO).getTipoTicket().getNivel();
-    int p2 = v2.obtenerTicket(EstadoTicket.ACTIVO).getTipoTicket().getNivel();
-    return Integer.compare(p1, p2); });
+    private PriorityQueue<Visitante> colaVirtual;
 
     // Constructor
 
-    public Atraccion (){}
+    public Atraccion (){
+        this.colaVirtual = new PriorityQueue<>((v1, v2) -> {
+            int p1 = v1.obtenerTicket(EstadoTicket.ACTIVO).getTipoTicket().getNivel();
+            int p2 = v2.obtenerTicket(EstadoTicket.ACTIVO).getTipoTicket().getNivel();
+            return Integer.compare(p1, p2); });
+    }
 
     public Atraccion(String nombreAtraccion, String nombreZona, int capacidadMaxima, RequisitosSeguridad requisitosSeguridad,
             double costoAdicional, int tiempoEspera, TipoAtraccion tipoAtraccion) {
@@ -43,6 +45,10 @@ public class Atraccion {
         this.motivoCierre = "";
         this.listaOperadoresAsignados = new ArrayList<>();
         this.estadoAtraccion = EstadoAtraccion.CERRADA;
+        this.colaVirtual = new PriorityQueue<>((v1, v2) -> {
+            int p1 = v1.obtenerTicket(EstadoTicket.ACTIVO).getTipoTicket().getNivel();
+            int p2 = v2.obtenerTicket(EstadoTicket.ACTIVO).getTipoTicket().getNivel();
+            return Integer.compare(p1, p2); });
     }
 
     public List<Visitante> realizarCiclo() {
@@ -59,6 +65,7 @@ public class Atraccion {
     }
 
     public void agregarVisitanteCola (Visitante visitante){
+        System.out.println(visitante.obtenerTicket(EstadoTicket.ACTIVO).getTipoTicket().getNivel());
         colaVirtual.add(visitante);
     }
     
@@ -103,7 +110,10 @@ public class Atraccion {
     }
 
     public void setColaVirtual(PriorityQueue<Visitante> colaVirtual) {
-        this.colaVirtual = colaVirtual;
+        this.colaVirtual = new PriorityQueue<>((v1, v2) -> {
+            int p1 = v1.obtenerTicket(EstadoTicket.ACTIVO).getTipoTicket().getNivel();
+            int p2 = v2.obtenerTicket(EstadoTicket.ACTIVO).getTipoTicket().getNivel();
+            return Integer.compare(p1, p2); });
     }
 
     public int calcularTiempoEsperaTotal() {

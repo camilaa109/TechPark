@@ -4,22 +4,20 @@
   "edad" : 28,
   "contrasenia" : "carlos2024",
   "estatura" : 1.75,
-  "saldoVirtual" : 50.0,
+  "saldoVirtual" : 5.5,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Montaña Rusa", "Carrusel", "Montaña Rusa", "Carrusel", "Montaña Rusa", "Carrusel", "Montaña Rusa", "Carrusel" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Montaña Rusa", "Carrusel", "Montaña Rusa", "Carrusel", "Montaña Rusa", "Carrusel", "Montaña Rusa", "Carrusel" ]
+  "listaFavoritos" : [ "Montaña Rusa", "Carrusel" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Ana Sofía Ruiz",
   "documento" : "11928374",
   "edad" : 22,
   "contrasenia" : "ana_pass99",
   "estatura" : 1.62,
-  "saldoVirtual" : 120.5,
+  "saldoVirtual" : 20.5,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Rueda de la Fortuna", "Rueda de la Fortuna", "Rueda de la Fortuna", "Rueda de la Fortuna" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Rueda de la Fortuna", "Rueda de la Fortuna", "Rueda de la Fortuna", "Rueda de la Fortuna" ]
+  "listaFavoritos" : [ "Rueda de la Fortuna" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Juan Pablo Duarte",
   "documento" : "10475839",
@@ -28,9 +26,8 @@
   "estatura" : 1.8,
   "saldoVirtual" : 15.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Carros Chocones", "Barco Pirata", "Carros Chocones", "Barco Pirata", "Carros Chocones", "Barco Pirata", "Carros Chocones", "Barco Pirata" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Carros Chocones", "Barco Pirata", "Carros Chocones", "Barco Pirata", "Carros Chocones", "Barco Pirata", "Carros Chocones", "Barco Pirata" ]
+  "listaFavoritos" : [ "Carros Chocones", "Barco Pirata" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Lucía Fernández",
   "documento" : "10837465",
@@ -39,9 +36,8 @@
   "estatura" : 1.58,
   "saldoVirtual" : 200.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Casa del Terror", "Montaña Rusa", "Casa del Terror", "Montaña Rusa", "Casa del Terror", "Montaña Rusa", "Casa del Terror", "Montaña Rusa" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Casa del Terror", "Montaña Rusa", "Casa del Terror", "Montaña Rusa", "Casa del Terror", "Montaña Rusa", "Casa del Terror", "Montaña Rusa" ]
+  "listaFavoritos" : [ "Casa del Terror", "Montaña Rusa" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Mateo Gómez",
   "documento" : "10556677",
@@ -51,8 +47,7 @@
   "saldoVirtual" : 35.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ ]
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Valeria Castro",
   "documento" : "11223344",
@@ -61,9 +56,8 @@
   "estatura" : 1.65,
   "saldoVirtual" : 0.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Sillas Voladoras", "Sillas Voladoras", "Sillas Voladoras", "Sillas Voladoras" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Sillas Voladoras", "Sillas Voladoras", "Sillas Voladoras", "Sillas Voladoras" ]
+  "listaFavoritos" : [ "Sillas Voladoras" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Ricardo Torres",
   "documento" : "10998877",
@@ -72,9 +66,8 @@
   "estatura" : 1.85,
   "saldoVirtual" : 500.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Montaña Rusa", "Torre de Caida Libre", "Troncos Locos", "Montaña Rusa", "Torre de Caida Libre", "Troncos Locos", "Montaña Rusa", "Torre de Caida Libre", "Troncos Locos", "Montaña Rusa", "Torre de Caida Libre", "Troncos Locos" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Montaña Rusa", "Torre de Caida Libre", "Troncos Locos", "Montaña Rusa", "Torre de Caida Libre", "Troncos Locos", "Montaña Rusa", "Torre de Caida Libre", "Troncos Locos", "Montaña Rusa", "Torre de Caida Libre", "Troncos Locos" ]
+  "listaFavoritos" : [ "Montaña Rusa", "Torre de Caida Libre", "Troncos Locos" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Elena Martínez",
   "documento" : "11445566",
@@ -83,9 +76,8 @@
   "estatura" : 1.6,
   "saldoVirtual" : 42.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Carrusel", "Carrusel", "Carrusel", "Carrusel" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Carrusel", "Carrusel", "Carrusel", "Carrusel" ]
+  "listaFavoritos" : [ "Carrusel" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Santiago Peña",
   "documento" : "10667788",
@@ -94,9 +86,8 @@
   "estatura" : 1.78,
   "saldoVirtual" : 10.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Casa del Terror", "Casa del Terror", "Casa del Terror", "Casa del Terror" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Casa del Terror", "Casa del Terror", "Casa del Terror", "Casa del Terror" ]
+  "listaFavoritos" : [ "Casa del Terror" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Isabela Ríos",
   "documento" : "11778899",
@@ -105,9 +96,8 @@
   "estatura" : 1.68,
   "saldoVirtual" : 85.5,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Rueda de la Fortuna", "Carrusel", "Rueda de la Fortuna", "Carrusel", "Rueda de la Fortuna", "Carrusel", "Rueda de la Fortuna", "Carrusel" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Rueda de la Fortuna", "Carrusel", "Rueda de la Fortuna", "Carrusel", "Rueda de la Fortuna", "Carrusel", "Rueda de la Fortuna", "Carrusel" ]
+  "listaFavoritos" : [ "Rueda de la Fortuna", "Carrusel" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Alejandro Morales",
   "documento" : "11559944",
@@ -116,9 +106,8 @@
   "estatura" : 1.7,
   "saldoVirtual" : 65.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Simulador VR 4D", "Frenesi de Tazas", "Simulador VR 4D", "Frenesi de Tazas", "Simulador VR 4D", "Frenesi de Tazas", "Simulador VR 4D", "Frenesi de Tazas" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Simulador VR 4D", "Frenesi de Tazas", "Simulador VR 4D", "Frenesi de Tazas", "Simulador VR 4D", "Frenesi de Tazas", "Simulador VR 4D", "Frenesi de Tazas" ]
+  "listaFavoritos" : [ "Simulador VR 4D", "Frenesi de Tazas" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Gabriela Espinal",
   "documento" : "10334422",
@@ -127,9 +116,8 @@
   "estatura" : 1.64,
   "saldoVirtual" : 150.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Tornado de Acero", "Rapidos del Amazonas", "Tornado de Acero", "Rapidos del Amazonas", "Tornado de Acero", "Rapidos del Amazonas", "Tornado de Acero", "Rapidos del Amazonas" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Tornado de Acero", "Rapidos del Amazonas", "Tornado de Acero", "Rapidos del Amazonas", "Tornado de Acero", "Rapidos del Amazonas", "Tornado de Acero", "Rapidos del Amazonas" ]
+  "listaFavoritos" : [ "Tornado de Acero", "Rapidos del Amazonas" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Daniel Fernando Villa",
   "documento" : "10884433",
@@ -138,9 +126,8 @@
   "estatura" : 1.82,
   "saldoVirtual" : 25.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Carros Chocones", "Carros Chocones", "Carros Chocones", "Carros Chocones" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Carros Chocones", "Carros Chocones", "Carros Chocones", "Carros Chocones" ]
+  "listaFavoritos" : [ "Carros Chocones" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Mariana Jaramillo",
   "documento" : "11226688",
@@ -149,9 +136,8 @@
   "estatura" : 1.55,
   "saldoVirtual" : 80.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Sillas Voladoras Kid", "Carrusel de las Luces", "Sillas Voladoras Kid", "Carrusel de las Luces", "Sillas Voladoras Kid", "Carrusel de las Luces", "Sillas Voladoras Kid", "Carrusel de las Luces" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Sillas Voladoras Kid", "Carrusel de las Luces", "Sillas Voladoras Kid", "Carrusel de las Luces", "Sillas Voladoras Kid", "Carrusel de las Luces", "Sillas Voladoras Kid", "Carrusel de las Luces" ]
+  "listaFavoritos" : [ "Sillas Voladoras Kid", "Carrusel de las Luces" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Esteban Restrepo",
   "documento" : "10775511",
@@ -160,9 +146,8 @@
   "estatura" : 1.76,
   "saldoVirtual" : 0.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Montaña Rusa Alfa", "El Péndulo Gigante", "Montaña Rusa Alfa", "El Péndulo Gigante", "Montaña Rusa Alfa", "El Péndulo Gigante", "Montaña Rusa Alfa", "El Péndulo Gigante" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Montaña Rusa Alfa", "El Péndulo Gigante", "Montaña Rusa Alfa", "El Péndulo Gigante", "Montaña Rusa Alfa", "El Péndulo Gigante", "Montaña Rusa Alfa", "El Péndulo Gigante" ]
+  "listaFavoritos" : [ "Montaña Rusa Alfa", "El Péndulo Gigante" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Camila Ochoa",
   "documento" : "11448822",
@@ -171,9 +156,8 @@
   "estatura" : 1.61,
   "saldoVirtual" : 95.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Teatro de Efectos Especiales", "Cine Max 7D", "Teatro de Efectos Especiales", "Cine Max 7D", "Teatro de Efectos Especiales", "Cine Max 7D", "Teatro de Efectos Especiales", "Cine Max 7D" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Teatro de Efectos Especiales", "Cine Max 7D", "Teatro de Efectos Especiales", "Cine Max 7D", "Teatro de Efectos Especiales", "Cine Max 7D", "Teatro de Efectos Especiales", "Cine Max 7D" ]
+  "listaFavoritos" : [ "Teatro de Efectos Especiales", "Cine Max 7D" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Julián David Andrés",
   "documento" : "10447733",
@@ -182,9 +166,8 @@
   "estatura" : 1.79,
   "saldoVirtual" : 110.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Desafío Láser", "Simulador VR 4D", "Desafío Láser", "Simulador VR 4D", "Desafío Láser", "Simulador VR 4D", "Desafío Láser", "Simulador VR 4D" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Desafío Láser", "Simulador VR 4D", "Desafío Láser", "Simulador VR 4D", "Desafío Láser", "Simulador VR 4D", "Desafío Láser", "Simulador VR 4D" ]
+  "listaFavoritos" : [ "Desafío Láser", "Simulador VR 4D" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Sofía Valentina Nova",
   "documento" : "11993355",
@@ -193,9 +176,8 @@
   "estatura" : 1.67,
   "saldoVirtual" : 45.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Troncos Locos", "Splash Nocturno", "Troncos Locos", "Splash Nocturno", "Troncos Locos", "Splash Nocturno", "Troncos Locos", "Splash Nocturno" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Troncos Locos", "Splash Nocturno", "Troncos Locos", "Splash Nocturno", "Troncos Locos", "Splash Nocturno", "Troncos Locos", "Splash Nocturno" ]
+  "listaFavoritos" : [ "Troncos Locos", "Splash Nocturno" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Nicolás Bermúdez",
   "documento" : "10226644",
@@ -204,9 +186,8 @@
   "estatura" : 1.84,
   "saldoVirtual" : 320.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Tornado de Acero", "El Pendulo Gigante", "Montaña Rusa Alfa", "Tornado de Acero", "El Pendulo Gigante", "Montaña Rusa Alfa", "Tornado de Acero", "El Pendulo Gigante", "Montaña Rusa Alfa", "Tornado de Acero", "El Pendulo Gigante", "Montaña Rusa Alfa" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "Tornado de Acero", "El Pendulo Gigante", "Montaña Rusa Alfa", "Tornado de Acero", "El Pendulo Gigante", "Montaña Rusa Alfa", "Tornado de Acero", "El Pendulo Gigante", "Montaña Rusa Alfa", "Tornado de Acero", "El Pendulo Gigante", "Montaña Rusa Alfa" ]
+  "listaFavoritos" : [ "Tornado de Acero", "El Pendulo Gigante", "Montaña Rusa Alfa" ],
+  "notificaciones" : [ ]
 }, {
   "nombre" : "Manuela Beltrán",
   "documento" : "11662288",
@@ -215,7 +196,6 @@
   "estatura" : 1.59,
   "saldoVirtual" : 15.5,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "El Laberinto Espejo", "El Laberinto Espejo", "El Laberinto Espejo", "El Laberinto Espejo" ],
-  "notificaciones" : [ ],
-  "listaNombreFavoritos" : [ "El Laberinto Espejo", "El Laberinto Espejo", "El Laberinto Espejo", "El Laberinto Espejo" ]
+  "listaFavoritos" : [ "El Laberinto Espejo" ],
+  "notificaciones" : [ ]
 } ]

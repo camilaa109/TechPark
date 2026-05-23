@@ -88,7 +88,7 @@ public class RegistroVisitanteViewController {
             AlertaUtil.exito("¡Registro exitoso! Ya puedes iniciar sesión con tus credenciales.");
             
             // Redirección inmediata hacia la pantalla de login
-            NavegadorUtil.irA((Stage) btnRegistrar.getScene().getWindow(), "/fxml/InicioSesion.fxml");
+            NavegadorUtil.irA((Stage) btnRegistrar.getScene().getWindow(), "/view/InicioSesionView.fxml");
         } else {
             AlertaUtil.error("El documento digitado ya se encuentra registrado en el sistema.");
         }
@@ -100,6 +100,6 @@ public class RegistroVisitanteViewController {
     @FXML
     public void onVolver() {
         // Redirige al usuario al index principal de autenticación
-        NavegadorUtil.irA((Stage) lnkVolver.getScene().getWindow(), "/fxml/InicioSesion.fxml");
+        NavegadorUtil.irA((Stage) lnkVolver.getScene().getWindow(), "/view/InicioSesionView.fxml");
     }
 }

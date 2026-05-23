@@ -83,7 +83,7 @@ public class ColaVirtualAtraccionViewController {
 
         int tiempo = visitanteController.consultarTiempoEspera(zona, atraccion);
 
-        lblTiempoEspera.setText("Tiempo estimado de espera: " + tiempo + " min");
+        lblTiempoEspera.setText("Tiempo estimado de espera: " + tiempo + " segundos");
     }
 
     /**
@@ -116,6 +116,6 @@ public class ColaVirtualAtraccionViewController {
      */
     @FXML
     public void onVolver() {
-        NavegadorUtil.irA((Stage) btnVolver.getScene().getWindow(), "/fxml/PanelVisitante.fxml");
+        NavegadorUtil.irA((Stage) btnVolver.getScene().getWindow(), "/view/PanelVisitanteView.fxml");
     }
 }

@@ -249,6 +249,6 @@ public class PanelOperadorViewController {
     @FXML
     public void onCerrarSesion() {
         new ParqueController().cerrarSesion();
-        NavegadorUtil.irA((Stage) btnCerrarSesion.getScene().getWindow(), "/fxml/InicioSesion.fxml");
+        NavegadorUtil.irA((Stage) btnCerrarSesion.getScene().getWindow(), "/view/InicioSesionView.fxml");
     }
 }

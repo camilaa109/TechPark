@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+    PanelVisitanteView.fxml
+    Vista principal del visitante autenticado.
+
+    Correcciones respecto a la versión anterior:
+      - ColumnConstraints en el GridPane para que las columnas tengan ancho fijo y no colapsen.
+      - prefWidth y prefHeight en el VBox raíz para que la ventana tenga tamaño consistente.
+      - Padding homogéneo con <Insets> en lugar de estilos inline dispersos.
+      - Separador de sección para Favoritos y Notificaciones dentro de la columna derecha.
+      - Estilos consolidados y consistentes en los botones de acción principal.
+      - VBox.vgrow="ALWAYS" en los ListView para que crezcan con la ventana.
+      - promptText en ComboBox para guiar al usuario.
+-->
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="co.edu.uniquindio.techpark.viewcontroller.PanelVisitanteViewController"
+      prefWidth="760" prefHeight="520"
+      spacing="14"
+      style="-fx-background-color: #f4f6f9; -fx-font-family: 'System';">
+
+    <padding>
+        <Insets top="20" right="24" bottom="20" left="24"/>
+    </padding>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         ENCABEZADO — Nombre de bienvenida y saldo
+    ══════════════════════════════════════════════════════════════ -->
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label fx:id="lblNombreBienvenida"
+               text="¡Bienvenido!"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1a1a2e;"/>
+        <Label fx:id="lblSaldo"
+               text="Saldo Disponible: $0.00"
+               style="-fx-font-size: 13px; -fx-text-fill: #2e7d32; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <Separator/>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         CUERPO PRINCIPAL — Dos columnas: Tickets | Favoritos + Notificaciones
+    ══════════════════════════════════════════════════════════════ -->
+    <GridPane hgap="20" vgap="10" VBox.vgrow="ALWAYS">
+
+        <!-- Anchos fijos y expansión proporcional de cada columna -->
+        <columnConstraints>
+            <ColumnConstraints prefWidth="360" hgrow="ALWAYS"/>
+            <ColumnConstraints prefWidth="320" hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <!-- ── COLUMNA IZQUIERDA: Tickets ── -->
+        <VBox GridPane.columnIndex="0" spacing="8" VBox.vgrow="ALWAYS">
+
+            <Label text="🎟  Mis Tickets"
+                   style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #333;"/>
+
+            <ListView fx:id="listViewTickets"
+                      VBox.vgrow="ALWAYS"
+                      prefHeight="240"/>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <ComboBox fx:id="comboTipoTicket"
+                          promptText="Selecciona tipo de ticket"
+                          HBox.hgrow="ALWAYS"
+                          maxWidth="Infinity"/>
+                <Button fx:id="btnComprarTicket"
+                        text="Comprar"
+                        onAction="#onComprarTicket"
+                        style="-fx-background-color: #1976d2; -fx-text-fill: white;
+                               -fx-font-weight: bold; -fx-cursor: hand;"/>
+            </HBox>
+        </VBox>
+
+        <!-- ── COLUMNA DERECHA: Favoritos + Notificaciones ── -->
+        <VBox GridPane.columnIndex="1" spacing="8" VBox.vgrow="ALWAYS">
+
+            <!-- Favoritos -->
+            <Label text="⭐  Mis Favoritos"
+                   style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #333;"/>
+
+            <ListView fx:id="listViewFavoritos"
+                      prefHeight="110"/>
+
+            <Separator>
+                <VBox.margin>
+                    <Insets top="4" bottom="4"/>
+                </VBox.margin>
+            </Separator>
+
+            <!-- Notificaciones -->
+            <Label text="🔔  Notificaciones"
+                   style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #333;"/>
+
+            <ListView fx:id="listViewNotificaciones"
+                      VBox.vgrow="ALWAYS"
+                      prefHeight="110"/>
+
+            <Button fx:id="btnEliminarNotificacion"
+                    text="Eliminar seleccionada"
+                    onAction="#onEliminarNotificacion"
+                    style="-fx-background-color: #ef6c00; -fx-text-fill: white;
+                           -fx-font-weight: bold; -fx-cursor: hand;"/>
+        </VBox>
+    </GridPane>
+
+    <Separator/>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         PIE — Botones de navegación
+    ══════════════════════════════════════════════════════════════ -->
+    <HBox spacing="12" alignment="CENTER_RIGHT">
+
+        <Button fx:id="btnIrAColaVirtual"
+                text="Ver Cola Virtual"
+                onAction="#onIrAColaVirtual"
+                style="-fx-background-color: #388e3c; -fx-text-fill: white;
+                       -fx-font-weight: bold; -fx-cursor: hand;"/>
+
+        <Button fx:id="btnCerrarSesion"
+                text="Cerrar Sesión"
+                onAction="#onCerrarSesion"
+                style="-fx-background-color: #c62828; -fx-text-fill: white;
+                       -fx-font-weight: bold; -fx-cursor: hand;"/>
+    </HBox>
+
+</VBox>

@@ -111,7 +111,7 @@ public class ParqueTest {
         parque.agregarFavorito(documento, nombreAtraccion);
 
         Visitante visitanteEncontrado = parque.obtenerVisitante(documento);
-        assertEquals(nombreAtraccion, visitanteEncontrado.getListaNombreFavoritos().get(0));
+        assertEquals(nombreAtraccion, visitanteEncontrado.getListaFavoritos().get(0));
         
     }
 
@@ -146,7 +146,7 @@ public class ParqueTest {
 
         int consulta = parque.consultarTiempoEspera(nombreZona, nombreAtraccion);
 
-        assertEquals(5, consulta);
+        assertEquals(15, consulta);
     }
 
     // Pruebas de empleados
@@ -249,7 +249,7 @@ public class ParqueTest {
         parque.realizarCicloAtraccion(nombreZona, nombreAtraccion);
 
         Atraccion atraccion = parque.obtenerAtraccion(nombreZona, nombreAtraccion);
-        assertEquals(4, atraccion.getColaVirtual().size());
+        assertEquals(10, atraccion.getColaVirtual().size());
     }
 
     @Test

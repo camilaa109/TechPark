@@ -42,11 +42,11 @@ public class Parque{
     //funciones para visitantes
     public boolean agregarVisitante (String nombre, String documento, int edad, String contrasenia, double estatura){
         if (obtenerVisitante(documento) == null){
-            return false;
+            Visitante visitante = new Visitante(nombre, documento, edad, contrasenia, estatura);
+            listaVisitantes.add(visitante);
+            return true;
         }
-        Visitante visitante = new Visitante(nombre, documento, edad, contrasenia, estatura);
-        listaVisitantes.add(visitante);
-        return true;
+        return false;
     }
     
     public Visitante obtenerVisitante (String documento){
