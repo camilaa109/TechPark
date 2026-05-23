@@ -38,7 +38,7 @@ public class Parque{
 
     //funciones para visitantes
     public boolean agregarVisitante (String nombre, String documento, int edad, String contrasenia, double estatura){
-        if (existePersona(documento)){
+        if (obtenerVisitante(documento) == null){
             return false;
         }
         Visitante visitante = new Visitante(nombre, documento, edad, contrasenia, estatura);
@@ -67,11 +67,24 @@ public class Parque{
         listaVisitantes.remove(v);
     }
 
-    public void comprarTicket (String documento, double descuento, TipoTicket tipoticket){
+    public boolean comprarTicket (String documento, TipoTicket tipoticket){
         Visitante v = obtenerVisitante(documento);
+        double descuento = 0;
+        if(tipoticket.equals(TipoTicket.FAMILIAR)){
+            descuento = 0.10;
+        }
         Ticket ticket = new Ticket(descuento, tipoticket);
+        if(v.getSaldoVirtual()<ticket.getPrecioTicket()){
+            return false;
+        }
         v.restarSaldoVirtual(ticket.getPrecioTicket());
         v.agregarTicket(ticket);
+        return true;
+    }
+
+    public List<Ticket> obtenerTickets (String documento){
+        Visitante v = obtenerVisitante(documento);
+        return v.getListaTickets();
     }
 
     public boolean accesoAtraccion(String documento, String nombreZona, String nombreAtraccion) {
@@ -109,6 +122,11 @@ public class Parque{
     public void agregarFavorito (String documento, String nombreAtraccion){
         Visitante v = obtenerVisitante(documento);
         v.agregarFavorito(nombreAtraccion);
+    }
+
+    public List<String> obtenerFavoritos (String documento){
+        Visitante v = obtenerVisitante(documento);
+        return v.getListaFavoritos();
     }
 
     public List<Visitante> obtenerVisitantesActivos (){
@@ -151,6 +169,16 @@ public class Parque{
             }
         }
         return null;
+    }
+
+    public List<Operador> obtenerListaOperadores (){
+        List<Operador> operadores = new ArrayList<>();
+        for (Empleado e : listaEmpleados){
+            if (e instanceof Operador){
+                operadores.add((Operador)e);
+            }
+        }
+        return operadores;
     }
 
      public void actualizarOperador(String nombre, String documento, int edad, String contrasenia) {

@@ -1,17 +1,18 @@
 package co.edu.uniquindio.techpark.controller;
 
+import co.edu.uniquindio.techpark.model.Administrador;
 import co.edu.uniquindio.techpark.model.Parque;
 import co.edu.uniquindio.techpark.model.Rol;
 
 /**
- * Controlador principal del parque.
- * Gestiona la instancia Singleton del parque y el inicio de sesión.
- * Comparte la instancia entre todos los demás controladores.
+ * Controlador principal del parque (Lógica de Negocio).
+ * Gestiona la instancia Singleton del parque y el estado de la sesión activa.
  */
 public class ParqueController {
 
     // Instancia singleton del parque (compartida por todos los controladores)
-    private static final Parque parque = new Parque("TechPark", 1000);
+    private static final Administrador administrador = new Administrador("Camila", "5678", 19, "techpark2026");
+    private static final Parque parque = administrador.crearParque("TechPark", 10000);
 
     // Sesión activa
     private static String documentoSesionActiva;
@@ -35,6 +36,11 @@ public class ParqueController {
      * @return el Rol correspondiente, o null si las credenciales son inválidas.
      */
     public Rol iniciarSesion(String documento, String contrasenia) {
+
+        if (documento.equals(administrador.getDocumento()) && contrasenia.equals(administrador.getContrasenia())){
+            return Rol.ADMINISTRADOR;
+        }
+
         Rol rol = parque.inicioSesion(documento, contrasenia);
 
         if (rol != null) {
@@ -42,21 +48,14 @@ public class ParqueController {
             rolSesionActiva = rol;
         }
 
-        // TODO (Vista): navegar a la pantalla correspondiente según el rol
-        //   if (rol == Rol.VISITANTE)  -> cargar VistaVisitante.fxml
-        //   if (rol == Rol.OPERADOR)   -> cargar VistaOperador.fxml
-        //   if (rol == Rol.ADMIN)      -> cargar VistaAdmin.fxml
-        //   Mostrar alerta si rol == null
-
         return rol;
     }
 
-    /** Cierra la sesión activa. */
+    /** * Cierra la sesión activa. 
+     */
     public void cerrarSesion() {
         documentoSesionActiva = null;
         rolSesionActiva = null;
-
-        // TODO (Vista): redirigir a la pantalla de inicio de sesión
     }
 
     // -------------------------------------------------------------------------

@@ -94,7 +94,7 @@ public class ParqueTest {
         Visitante visitanteEncontrado = parque.obtenerVisitante(documento);
         visitanteEncontrado.setSaldoVirtual(saldoVirtual);
 
-        parque.comprarTicket(documento, 0.5, TipoTicket.GENERAL);
+        parque.comprarTicket(documento, TipoTicket.GENERAL);
 
         assertNotEquals(saldoVirtual, visitanteEncontrado.getSaldoVirtual());
         assertFalse(visitanteEncontrado.getListaTickets().isEmpty());

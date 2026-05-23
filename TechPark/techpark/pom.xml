@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <javafx.version>26</javafx.version>
+        <javafx.version>21</javafx.version>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
     </properties>
@@ -40,14 +40,12 @@
 
     <build>
     <plugins>
-        <!-- Plugin oficial de OpenJFX para ejecutar con mvn javafx:run -->
         <plugin>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-maven-plugin</artifactId>
             <version>0.0.8</version>
             <configuration>
-                <!-- Ajusta esto a tu clase principal -->
-                <mainClass>co.edu.uniquindio.techpark.MainApp</mainClass>
+                <mainClass>co.edu.uniquindio.techpark.Main</mainClass>
             </configuration>
             </plugin>
         </plugins>

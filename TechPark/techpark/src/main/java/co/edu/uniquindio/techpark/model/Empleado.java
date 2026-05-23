@@ -1,6 +1,6 @@
 package co.edu.uniquindio.techpark.model;
 
-public class Empleado extends Persona {
+public abstract class Empleado extends Persona {
 
     private boolean activo;
 
