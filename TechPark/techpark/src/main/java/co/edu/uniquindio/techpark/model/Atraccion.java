@@ -9,6 +9,7 @@ public class Atraccion {
     private String idAtraccion;
 
     private String nombreAtraccion;
+    private String nombreZona;
     private int capacidadMaxima;
     private RequisitosSeguridad requisitosSeguridad;
     private double costoAdicional;
@@ -25,10 +26,14 @@ public class Atraccion {
     return Integer.compare(p1, p2); });
 
     // Constructor
-    public Atraccion(String nombreAtraccion, int capacidadMaxima, RequisitosSeguridad requisitosSeguridad,
+
+    public Atraccion (){}
+
+    public Atraccion(String nombreAtraccion, String nombreZona, int capacidadMaxima, RequisitosSeguridad requisitosSeguridad,
             double costoAdicional, int tiempoEspera, TipoAtraccion tipoAtraccion) {
         this.idAtraccion = nombreAtraccion + contador++;
         this.nombreAtraccion = nombreAtraccion;
+        this.nombreZona = nombreZona;
         this.capacidadMaxima = capacidadMaxima;
         this.requisitosSeguridad = requisitosSeguridad;
         this.costoAdicional = costoAdicional;
@@ -62,10 +67,9 @@ public class Atraccion {
     }
 
     public void asignarOperador (Operador operador){
-        if (listaOperadoresAsignados.contains(operador)){
-            designarOperador(operador);
+        if (!listaOperadoresAsignados.contains(operador)){
+            listaOperadoresAsignados.add(operador);
         }
-        listaOperadoresAsignados.add(operador);
     }
 
     public void designarOperador (Operador operador){
@@ -76,6 +80,30 @@ public class Atraccion {
 
     public String getIdAtraccion() {
         return idAtraccion;
+    }
+
+    public String getNombreZona() {
+        return nombreZona;
+    }
+
+    public void setNombreZona(String nombreZona) {
+        this.nombreZona = nombreZona;
+    }
+
+    public void setIdAtraccion(String idAtraccion) {
+        this.idAtraccion = idAtraccion;
+    }
+
+    public void setRequisitosSeguridad(RequisitosSeguridad requisitosSeguridad) {
+        this.requisitosSeguridad = requisitosSeguridad;
+    }
+
+    public void setListaOperadoresAsignados(List<Operador> listaOperadoresAsignados) {
+        this.listaOperadoresAsignados = listaOperadoresAsignados;
+    }
+
+    public void setColaVirtual(PriorityQueue<Visitante> colaVirtual) {
+        this.colaVirtual = colaVirtual;
     }
 
     public int getTiempoEsperaTotal() {

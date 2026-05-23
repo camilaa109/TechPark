@@ -8,15 +8,29 @@ public class Zona {
     private String idZona;
     private String nombreZona;
     private List<Atraccion> listaAtracciones;
-    private List<String> listaIdOperadores;
+    private List<Operador> listaOperadores;
     private static int contador = 0;
 
     //Constructor
+    public Zona (){}
+
     public Zona(String nombreZona) {
         this.idZona = nombreZona + contador++;
         this.nombreZona = nombreZona;
         this.listaAtracciones = new ArrayList<>();
-        this.listaIdOperadores = new ArrayList<>();
+        this.listaOperadores = new ArrayList<>();
+    }
+
+    public void asignarOperador(Operador operador, String nombreAtraccion) {
+        if (!listaOperadores.contains(operador)){
+            listaOperadores.add(operador);
+        }
+        Atraccion atraccion = obtenerAtraccion(nombreAtraccion);
+        atraccion.asignarOperador(operador);
+    }
+
+    public void designarOperador (Operador operador){
+        listaOperadores.remove(operador);
     }
 
     public List<Atraccion> obtenerAtraccioneTipo (TipoAtraccion tipoAtraccion){
@@ -59,9 +73,8 @@ public class Zona {
         return listaAtracciones;
     }
 
-    public List<String> getListaIdOperadores() {
-        return listaIdOperadores;
+    public List<Operador> getListaOperadores() {
+        return listaOperadores;
     }
-    
 
 }

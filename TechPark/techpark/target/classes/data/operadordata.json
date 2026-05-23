@@ -1,0 +1,106 @@
+[
+  {
+    "nombre": "Diego Fernando Patiño",
+    "documento": "10948573",
+    "edad": 26,
+    "contrasenia": "diego_op2026",
+    "nombreZonaAsignada": "Zona Extrema",
+    "nombreAtraccionAsignada": "Montaña Rusa Alfa"
+  },
+  {
+    "nombre": "Camila Andrea Torres",
+    "documento": "11105847",
+    "edad": 23,
+    "contrasenia": "cami_tech99",
+    "nombreZonaAsignada": "Zona Infantil",
+    "nombreAtraccionAsignada": "Carrusel de las Luces"
+  },
+  {
+    "nombre": "Andrés Felipe Ocampo",
+    "documento": "10964820",
+    "edad": 30,
+    "contrasenia": "andres_pass77",
+    "nombreZonaAsignada": "Zona Familiar y Aventura",
+    "nombreAtraccionAsignada": "Barco Pirata"
+  },
+  {
+    "nombre": "Natalia Sofía Gómez",
+    "documento": "10957361",
+    "edad": 24,
+    "contrasenia": "nat_gomez_op",
+    "nombreZonaAsignada": "Zona Familiar y Aventura",
+    "nombreAtraccionAsignada": "Rueda de la Fortuna"
+  },
+  {
+    "nombre": "Juan Esteban Restrepo",
+    "documento": "11158493",
+    "edad": 28,
+    "contrasenia": "juan_restrepo01",
+    "nombreZonaAsignada": "Zona Extrema",
+    "nombreAtraccionAsignada": "Torre de Caida Libre"
+  },
+  {
+    "nombre": "Valentina Cardona",
+    "documento": "10932847",
+    "edad": 22,
+    "contrasenia": "vale_cardona12",
+    "nombreZonaAsignada": "Zona de Shows y Tecnologia",
+    "nombreAtraccionAsignada": "Simulador VR 4D"
+  },
+  {
+    "nombre": "Mateo Alejandro Marín",
+    "documento": "10971524",
+    "edad": 33,
+    "contrasenia": "mat_marin_2026",
+    "nombreZonaAsignada": "Zona Acuatica",
+    "nombreAtraccionAsignada": "Troncos Locos"
+  },
+  {
+    "nombre": "Laura Marcela Tobón",
+    "documento": "11124758",
+    "edad": 25,
+    "contrasenia": "lau_tobon_secure",
+    "nombreZonaAsignada": "Zona Familiar y Aventura",
+    "nombreAtraccionAsignada": "Carros Chocones"
+  },
+  {
+    "nombre": "Sebastián Beltrán",
+    "documento": "10984729",
+    "edad": 29,
+    "contrasenia": "sebas_op_park",
+    "nombreZonaAsignada": "Zona Familiar y Aventura",
+    "nombreAtraccionAsignada": "Casa del Terror"
+  },
+  {
+    "nombre": "Manuela Jaramillo",
+    "documento": "11162938",
+    "edad": 27,
+    "contrasenia": "manu_jara_27",
+    "nombreZonaAsignada": "Zona Infantil",
+    "nombreAtraccionAsignada": "Sillas Voladoras Kid"
+  },
+  {
+    "nombre": "Carlos Alberto Gómez",
+    "documento": "10554433",
+    "edad": 31,
+    "contrasenia": "carlos_g31_op",
+    "nombreZonaAsignada": "",
+    "nombreAtraccionAsignada": ""
+  },
+  {
+    "nombre": "Diana Marcela Rojas",
+    "documento": "11225599",
+    "edad": 25,
+    "contrasenia": "diana_rojas_op",
+    "nombreZonaAsignada": "",
+    "nombreAtraccionAsignada": ""
+  },
+  {
+    "nombre": "Santiago Alarcón",
+    "documento": "10778844",
+    "edad": 22,
+    "contrasenia": "santi_alarcon_22",
+    "nombreZonaAsignada": "",
+    "nombreAtraccionAsignada": ""
+  }
+]

@@ -73,7 +73,7 @@ public class Parque{
         if(tipoticket.equals(TipoTicket.FAMILIAR)){
             descuento = 0.10;
         }
-        Ticket ticket = new Ticket(descuento, tipoticket);
+        Ticket ticket = new Ticket(documento, descuento, tipoticket);
         if(v.getSaldoVirtual()<ticket.getPrecioTicket()){
             return false;
         }
@@ -195,9 +195,9 @@ public class Parque{
     }
 
     public void asignarOperador(String documento, String nombreZona, String nombreAtraccion) {
-        Atraccion atraccion = obtenerAtraccion(nombreZona, nombreAtraccion);
+        Zona zona = obtenerZona(nombreZona);
         Operador operador = obtenerOperador(documento);
-        atraccion.asignarOperador(operador);
+        zona.asignarOperador(operador, nombreAtraccion);
         operador.setNombreZonaAsignada(nombreZona);
         operador.setNombreAtraccionAsignada(nombreAtraccion);
     }
@@ -290,7 +290,7 @@ public class Parque{
         double costoAdicional, int tiempoEspera, TipoAtraccion tipoAtraccion, String nombreZona){
         Zona zona = obtenerZona(nombreZona);
         RequisitosSeguridad requisitosSeguridad = new RequisitosSeguridad(edadMinima, alturaMinima);
-        Atraccion atraccion = new Atraccion(nombreAtraccion, capacidadMaxima, requisitosSeguridad, costoAdicional, 
+        Atraccion atraccion = new Atraccion(nombreAtraccion, nombreZona, capacidadMaxima, requisitosSeguridad, costoAdicional, 
             tiempoEspera, tipoAtraccion);
         zona.agregarAtraccion(atraccion);
     }
@@ -352,7 +352,7 @@ public class Parque{
         return listaVisitantes;
     }
 
-    public List<Empleado> getListaIdEmpleados() {
+    public List<Empleado> getListaEmpleados() {
         return listaEmpleados;
     }
 
@@ -376,5 +376,22 @@ public class Parque{
 
     public void setListaEmpleados(List<Empleado> listaEmpleados) {
         this.listaEmpleados = listaEmpleados;
+    }
+
+    public void setAtracciones(List<Atraccion> atracciones) {
+        for (Zona z : listaZonas){
+            for (Atraccion a : atracciones){
+                if (a.getNombreZona().equals(z.getNombreZona())){
+                    z.agregarAtraccion(a);
+                }
+            }
+            for (Operador o : obtenerListaOperadores()){
+                if (!o.getNombreZonaAsignada().isBlank()){
+                    if (o.getNombreZonaAsignada().equals(z.getNombreZona())){
+                        z.asignarOperador(o, o.getNombreAtraccionAsignada());
+                    }
+                }
+            }
+        }        
     }
 }

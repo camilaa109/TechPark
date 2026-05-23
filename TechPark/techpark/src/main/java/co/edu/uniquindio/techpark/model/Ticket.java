@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class Ticket {
     
     private String idTicket;
+    private String idVisitante;
     private double precioTicket;
     private LocalDateTime fechaTicket;
     private double descuento;
@@ -14,8 +15,9 @@ public class Ticket {
 
     public Ticket(){}
 
-    public Ticket(double descuento, TipoTicket tipoTicket) {
-        this.idTicket = tipoTicket.toString() + contador++;
+    public Ticket(String idVisitante, double descuento, TipoTicket tipoTicket) {
+        this.idTicket = idVisitante + tipoTicket.toString() + contador++;
+        this.idVisitante = idVisitante;
         this.descuento = descuento;
         this.tipoTicket = tipoTicket;
         this.precioTicket = definirPrecioTicket(tipoTicket, descuento);
@@ -39,6 +41,14 @@ public class Ticket {
     //getters y setters
     public String getIdTicket() {
         return idTicket;
+    }
+
+    public String getIdVisitante() {
+        return idVisitante;
+    }
+
+    public void setIdVisitante(String idVisitante) {
+        this.idVisitante = idVisitante;
     }
 
     public TipoTicket getTipoTicket() {

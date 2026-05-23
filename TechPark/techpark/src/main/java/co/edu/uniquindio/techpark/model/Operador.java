@@ -5,6 +5,8 @@ public class Operador extends Empleado {
     private String nombreZonaAsignada;
     private String nombreAtraccionAsignada;
 
+    public Operador () {}
+
     public Operador(String nombre, String documento, int edad, String contrasenia) {
         super(nombre, documento, edad, contrasenia);
     }

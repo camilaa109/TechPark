@@ -12,7 +12,7 @@ public class ParqueController {
 
     // Instancia singleton del parque (compartida por todos los controladores)
     private static final Administrador administrador = new Administrador("Camila", "5678", 19, "techpark2026");
-    private static final Parque parque = administrador.crearParque("TechPark", 10000);
+    private static final Parque parque = administrador.cargarParque("TechPark", 10000);
 
     // Sesión activa
     private static String documentoSesionActiva;

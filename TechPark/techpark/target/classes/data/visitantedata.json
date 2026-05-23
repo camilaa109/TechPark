@@ -1,0 +1,202 @@
+[
+  {
+    "nombre": "Carlos Mendoza",
+    "documento": "10293847",
+    "edad": 28,
+    "contrasenia": "carlos2024",
+    "estatura": 1.75,
+    "saldoVirtual": 50.0,
+    "listaFavoritos": ["Montaña Rusa", "Carrusel"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Ana Sofía Ruiz",
+    "documento": "11928374",
+    "edad": 22,
+    "contrasenia": "ana_pass99",
+    "estatura": 1.62,
+    "saldoVirtual": 120.5,
+    "listaFavoritos": ["Rueda de la Fortuna"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Juan Pablo Duarte",
+    "documento": "10475839",
+    "edad": 35,
+    "contrasenia": "juanP#2026",
+    "estatura": 1.80,
+    "saldoVirtual": 15.0,
+    "listaFavoritos": ["Carros Chocones", "Barco Pirata"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Lucía Fernández",
+    "documento": "10837465",
+    "edad": 19,
+    "contrasenia": "lucy_sky",
+    "estatura": 1.58,
+    "saldoVirtual": 200.0,
+    "listaFavoritos": ["Casa del Terror", "Montaña Rusa"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Mateo Gómez",
+    "documento": "10556677",
+    "edad": 31,
+    "contrasenia": "mat_gomez123",
+    "estatura": 1.72,
+    "saldoVirtual": 35.0,
+    "listaFavoritos": [],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Valeria Castro",
+    "documento": "11223344",
+    "edad": 25,
+    "contrasenia": "val_secret",
+    "estatura": 1.65,
+    "saldoVirtual": 0.0,
+    "listaFavoritos": ["Sillas Voladoras"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Ricardo Torres",
+    "documento": "10998877",
+    "edad": 40,
+    "contrasenia": "rtorres!99",
+    "estatura": 1.85,
+    "saldoVirtual": 500.0,
+    "listaFavoritos": ["Montaña Rusa", "Torre de Caida Libre", "Troncos Locos"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Elena Martínez",
+    "documento": "11445566",
+    "edad": 27,
+    "contrasenia": "elena_m_27",
+    "estatura": 1.60,
+    "saldoVirtual": 42.0,
+    "listaFavoritos": ["Carrusel"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Santiago Peña",
+    "documento": "10667788",
+    "edad": 21,
+    "contrasenia": "santi_p_pass",
+    "estatura": 1.78,
+    "saldoVirtual": 10.0,
+    "listaFavoritos": ["Casa del Terror"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Isabela Ríos",
+    "documento": "11778899",
+    "edad": 24,
+    "contrasenia": "isa_rios24",
+    "estatura": 1.68,
+    "saldoVirtual": 85.5,
+    "listaFavoritos": ["Rueda de la Fortuna", "Carrusel"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Alejandro Morales",
+    "documento": "11559944",
+    "edad": 20,
+    "contrasenia": "alejo_m20",
+    "estatura": 1.70,
+    "saldoVirtual": 65.0,
+    "listaFavoritos": ["Simulador VR 4D", "Frenesi de Tazas"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Gabriela Espinal",
+    "documento": "10334422",
+    "edad": 29,
+    "contrasenia": "gaby_secure!",
+    "estatura": 1.64,
+    "saldoVirtual": 150.0,
+    "listaFavoritos": ["Tornado de Acero", "Rapidos del Amazonas"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Daniel Fernando Villa",
+    "documento": "10884433",
+    "edad": 33,
+    "contrasenia": "dan_villa33",
+    "estatura": 1.82,
+    "saldoVirtual": 25.0,
+    "listaFavoritos": ["Carros Chocones"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Mariana Jaramillo",
+    "documento": "11226688",
+    "edad": 18,
+    "contrasenia": "mari_jara18",
+    "estatura": 1.55,
+    "saldoVirtual": 80.0,
+    "listaFavoritos": ["Sillas Voladoras Kid", "Carrusel de las Luces"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Esteban Restrepo",
+    "documento": "10775511",
+    "edad": 26,
+    "contrasenia": "est_restrepo9",
+    "estatura": 1.76,
+    "saldoVirtual": 0.0,
+    "listaFavoritos": ["Montaña Rusa Alfa", "El Péndulo Gigante"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Camila Ochoa",
+    "documento": "11448822",
+    "edad": 23,
+    "contrasenia": "cami_8a_pass",
+    "estatura": 1.61,
+    "saldoVirtual": 95.0,
+    "listaFavoritos": ["Teatro de Efectos Especiales", "Cine Max 7D"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Julián David Andrés",
+    "documento": "10447733",
+    "edad": 30,
+    "contrasenia": "julian_d30",
+    "estatura": 1.79,
+    "saldoVirtual": 110.0,
+    "listaFavoritos": ["Desafío Láser", "Simulador VR 4D"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Sofía Valentina Nova",
+    "documento": "11993355",
+    "edad": 21,
+    "contrasenia": "sofiv_nova21",
+    "estatura": 1.67,
+    "saldoVirtual": 45.0,
+    "listaFavoritos": ["Troncos Locos", "Splash Nocturno"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Nicolás Bermúdez",
+    "documento": "10226644",
+    "edad": 37,
+    "contrasenia": "nico_berm37",
+    "estatura": 1.84,
+    "saldoVirtual": 320.0,
+    "listaFavoritos": ["Tornado de Acero", "El Pendulo Gigante", "Montaña Rusa Alfa"],
+    "listaTickets": []
+  },
+  {
+    "nombre": "Manuela Beltrán",
+    "documento": "11662288",
+    "edad": 25,
+    "contrasenia": "manu_b_secure",
+    "estatura": 1.59,
+    "saldoVirtual": 15.5,
+    "listaFavoritos": ["El Laberinto Espejo"],
+    "listaTickets": []
+  }
+]

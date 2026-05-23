@@ -1,11 +1,14 @@
 package co.edu.uniquindio.techpark.util;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import co.edu.uniquindio.techpark.model.Visitante;
+import co.edu.uniquindio.techpark.model.Operador;
+import co.edu.uniquindio.techpark.model.Ticket;
+import co.edu.uniquindio.techpark.model.Atraccion;
+import co.edu.uniquindio.techpark.model.Zona;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +17,6 @@ import java.util.List;
 
 public class ServicioEscritura {
 
-    private static final String RUTA_ARCHIVO = "src/main/resources/visitantes.json";
     private static final ObjectMapper mapper;
 
     static {
@@ -24,46 +26,88 @@ public class ServicioEscritura {
     }
 
     /**
-     * Guarda una lista de visitantes en el archivo JSON. 
-     * Si el archivo ya tiene datos, los lee primero y los combina.
+     * Guarda la lista de visitantes y, de forma automática, extrae y guarda 
+     * todos los tickets asociados a ellos en su respectivo archivo JSON.
+     * @param visitantes Lista con todos los visitantes de la aplicación.
      */
-    public static void guardarVisitantes(List<Visitante> nuevosVisitantes) {
+    public static void guardarVisitantes(List<Visitante> visitantes) {
         try {
-            File archivo = new File("src//main//resources\\visitantedata.json");
-            List<Visitante> listaCompleta = new ArrayList<>();
+            File archivoVisitantes = new File("src//main//resources//data\\visitantedata.json");
+            List<Visitante> listaAsegurada = visitantes != null ? visitantes : new ArrayList<>();
+            
+            // 1. Guardar la lista de visitantes en su JSON (sobrescribe por completo)
+            mapper.writeValue(archivoVisitantes, listaAsegurada);
+            System.out.println("Persistencia de visitantes guardada con éxito.");
 
-            // 1. Verificar si el archivo existe para no perder lo que ya está guardado
-            if (archivo.exists() && archivo.length() > 0) {
-                // Usamos TypeReference para manejar correctamente el tipado de List<Visitante>
-                List<Visitante> existentes = mapper.readValue(archivo, new TypeReference<List<Visitante>>() {});
-                listaCompleta.addAll(existentes);
+            // 2. EXTRAER AUTOMÁTICAMENTE LOS TICKETS
+            List<Ticket> todosLosTickets = new ArrayList<>();
+            for (Visitante v : listaAsegurada) {
+                if (v.getListaTickets() != null) {
+                    todosLosTickets.addAll(v.getListaTickets());
+                }
             }
 
-            // 2. Agregar los nuevos a la lista total
-            listaCompleta.addAll(nuevosVisitantes);
-
-            // 3. Escribir de vuelta al archivo
-            mapper.writeValue(archivo, listaCompleta);
-            System.out.println("Sincronización con JSON exitosa.");
+            // 3. Guardar los tickets extraídos en ticketdata.json de forma automática
+            guardarTickets(todosLosTickets);
 
         } catch (IOException e) {
-            System.err.println("Error en la persistencia estática: " + e.getMessage());
+            System.err.println("Error al guardar el JSON de visitantes y tickets: " + e.getMessage());
         }
     }
 
     /**
-     * Método adicional estático para cargar todos los visitantes al iniciar el sistema
+     * Guarda la lista de tickets, reemplazando por completo el contenido del archivo JSON.
+     * @param tickets Lista con todos los tickets a guardar de forma definitiva.
      */
-    public static List<Visitante> cargarVisitantes() {
-        File archivo = new File(RUTA_ARCHIVO);
-        if (!archivo.exists() || archivo.length() == 0) {
-            return new ArrayList<>();
-        }
+    public static void guardarTickets(List<Ticket> tickets) {
         try {
-            return mapper.readValue(archivo, new TypeReference<List<Visitante>>() {});
+            File archivo = new File("src//main//resources//data\\ticketdata.json");
+            mapper.writeValue(archivo, tickets != null ? tickets : new ArrayList<>());
+            System.out.println("Persistencia de tickets guardada con éxito.");
         } catch (IOException e) {
-            System.err.println("Error al cargar visitantes: " + e.getMessage());
-            return new ArrayList<>();
+            System.err.println("Error al guardar el JSON de tickets: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Guarda la lista de operadores, reemplazando por completo el contenido del archivo JSON.
+     * @param operadores Lista con todos los operadores a guardar de forma definitiva.
+     */
+    public static void guardarOperadores(List<Operador> operadores) {
+        try {
+            File archivo = new File("src//main//resources//data\\operadordata.json");
+            mapper.writeValue(archivo, operadores != null ? operadores : new ArrayList<>());
+            System.out.println("Persistencia de operadores guardada con éxito.");
+        } catch (IOException e) {
+            System.err.println("Error al guardar el JSON de operadores: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Guarda la lista de atracciones, reemplazando por completo el contenido del archivo JSON.
+     * @param atracciones Lista con todas las atracciones a guardar de forma definitiva.
+     */
+    public static void guardarAtracciones(List<Atraccion> atracciones) {
+        try {
+            File archivo = new File("src//main//resources//data\\atracciondata.json");
+            mapper.writeValue(archivo, atracciones != null ? atracciones : new ArrayList<>());
+            System.out.println("Persistencia de atracciones guardada con éxito.");
+        } catch (IOException e) {
+            System.err.println("Error al guardar el JSON de atracciones: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Guarda la lista de zonas, reemplazando por completo el contenido del archivo JSON.
+     * @param zonas Lista con todas las zonas a guardar de forma definitiva.
+     */
+    public static void guardarZonas(List<Zona> zonas) {
+        try {
+            File archivo = new File("src//main//resources//data\\zonadata.json");
+            mapper.writeValue(archivo, zonas != null ? zonas : new ArrayList<>());
+            System.out.println("Persistencia de zonas guardada con éxito.");
+        } catch (IOException e) {
+            System.err.println("Error al guardar el JSON de zonas: " + e.getMessage());
         }
     }
 }
