@@ -92,7 +92,7 @@ public class GestionZonasAtraccionesViewController {
         colNombreAtra.setCellValueFactory(new PropertyValueFactory<>("nombreAtraccion"));
         colTipoAtra.setCellValueFactory(new PropertyValueFactory<>("tipoAtraccion"));
         colEstadoAtra.setCellValueFactory(new PropertyValueFactory<>("estadoAtraccion"));
-        colEsperaAtra.setCellValueFactory(new PropertyValueFactory<>("tiempoEspera"));
+        colEsperaAtra.setCellValueFactory(new PropertyValueFactory<>("tiempoEsperaSegundos"));
 
         // Cargar los ENUMS en sus respectivos ComboBoxes de la UI
         comboTipoAtra.setItems(FXCollections.observableArrayList(TipoAtraccion.values()));
@@ -240,6 +240,7 @@ public class GestionZonasAtraccionesViewController {
         cargarAtracciones(zonaDeAtraccionSeleccionada);
         txtMotivoCierre.clear();
         tableAtracciones.getSelectionModel().clearSelection();
+        tableAtracciones.refresh();
         AlertaUtil.exito("Estado actualizado manualmente.");
     }
 

@@ -115,6 +115,12 @@
     ══════════════════════════════════════════════════════════════ -->
     <HBox spacing="12" alignment="CENTER_RIGHT">
 
+        <Button fx:id="btnVerMapa"
+                text="🗺 Ver Mapa"
+                onAction="#onVerMapa"
+                style="-fx-background-color: #2980b9; -fx-text-fill: white;
+                       -fx-font-weight: bold; -fx-cursor: hand;"/>
+
         <Button fx:id="btnIrAColaVirtual"
                 text="Ver Cola Virtual"
                 onAction="#onIrAColaVirtual"

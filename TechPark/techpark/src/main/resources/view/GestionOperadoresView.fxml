@@ -10,46 +10,46 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Priority?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="700.0" prefWidth="1000.0" spacing="0.0" style="-fx-background-color: #f0f2f5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.techpark.viewcontroller.GestionOperadoresViewController">
    <children>
-      
+
+      <!-- NAV BAR -->
       <HBox alignment="CENTER_LEFT" prefHeight="70.0" spacing="20.0" style="-fx-background-color: #2c3e50; -fx-padding: 0 20 0 20;">
          <children>
             <Label text="TechPark Admin" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
+               <font><Font name="System Bold" size="20.0" /></font>
             </Label>
             <Separator orientation="VERTICAL" prefHeight="40.0" style="-fx-opacity: 0.3;" />
             <Button fx:id="btnIrVisitantes" mnemonicParsing="false" onAction="#onIrAVisitantes" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-cursor: hand;" text="Gestionar Visitantes">
-               <font> <Font size="14.0" /> </font>
+               <font><Font size="14.0" /></font>
+            </Button>
+            <Button style="-fx-background-color: transparent; -fx-text-fill: #3498db; -fx-font-weight: bold; -fx-cursor: default;" text="Gestionar Operadores">
+               <font><Font size="14.0" /></font>
             </Button>
             <Button fx:id="btnIrZonas" mnemonicParsing="false" onAction="#onIrAZonas" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-cursor: hand;" text="Zonas y Atracciones">
-               <font> <Font size="14.0" /> </font>
+               <font><Font size="14.0" /></font>
             </Button>
-            <HBox HBox.hgrow="ALWAYS" /> <Button fx:id="btnCerrarSesion" mnemonicParsing="false" onAction="#onCerrarSesion" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Cerrar Sesión">
-               <font> <Font name="System Bold" size="13.0" /> </font>
+            <HBox HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnCerrarSesion" mnemonicParsing="false" onAction="#onCerrarSesion" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Cerrar Sesión">
+               <font><Font name="System Bold" size="13.0" /></font>
             </Button>
          </children>
       </HBox>
 
       <HBox spacing="20.0" VBox.vgrow="ALWAYS">
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
+         <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
          <children>
-            
+
+            <!-- TABLA -->
             <VBox spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
                   <Label text="Listado de Operadores" textFill="#34495e">
-                     <font> <Font name="System Bold" size="18.0" /> </font>
+                     <font><Font name="System Bold" size="18.0" /></font>
                   </Label>
                   <TableView fx:id="tableOperadores" VBox.vgrow="ALWAYS" style="-fx-background-radius: 5; -fx-border-color: #dcdde1; -fx-border-radius: 5;">
                     <columns>
@@ -65,66 +65,89 @@
                </children>
             </VBox>
 
+            <!-- PANEL LATERAL -->
             <VBox maxWidth="350.0" minWidth="350.0" spacing="20.0">
                <children>
-                  
-                  <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+
+                  <!-- FORMULARIO OPERADOR -->
+                  <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
                      <children>
                         <Label text="Datos del Operador" textFill="#2c3e50">
-                           <font> <Font name="System Bold" size="16.0" /> </font>
+                           <font><Font name="System Bold" size="16.0" /></font>
                         </Label>
-                        <GridPane vgap="10.0" hgap="10.0">
+                        <GridPane vgap="15.0" hgap="10.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <children>
-                             <VBox spacing="5.0">
-                                <Label text="Nombre" />
-                                <TextField fx:id="txtNombreOp" promptText="Nombre completo" />
+                             <VBox spacing="5.0" GridPane.rowIndex="0">
+                                <Label text="Nombre" textFill="#34495e">
+                                   <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <TextField fx:id="txtNombreOp" promptText="Nombre completo" style="-fx-background-radius: 5; -fx-border-radius: 5;" />
                              </VBox>
                              <VBox spacing="5.0" GridPane.rowIndex="1">
-                                <Label text="Documento" />
-                                <TextField fx:id="txtDocumentoOp" promptText="ID Único" />
+                                <Label text="Documento" textFill="#34495e">
+                                   <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <TextField fx:id="txtDocumentoOp" promptText="ID Único" style="-fx-background-radius: 5; -fx-border-radius: 5;" />
                              </VBox>
                              <VBox spacing="5.0" GridPane.rowIndex="2">
-                                <Label text="Edad" />
-                                <TextField fx:id="txtEdadOp" promptText="Edad" />
+                                <Label text="Edad" textFill="#34495e">
+                                   <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <TextField fx:id="txtEdadOp" promptText="Edad" style="-fx-background-radius: 5; -fx-border-radius: 5;" />
                              </VBox>
                              <VBox spacing="5.0" GridPane.rowIndex="3">
-                                <Label text="Contraseña" />
-                                <PasswordField fx:id="txtContraseniaOp" promptText="Contraseña" />
+                                <Label text="Contraseña" textFill="#34495e">
+                                   <font><Font name="System Bold" size="12.0" /></font>
+                                </Label>
+                                <PasswordField fx:id="txtContraseniaOp" promptText="Contraseña" style="-fx-background-radius: 5; -fx-border-radius: 5;" />
                              </VBox>
                           </children>
                         </GridPane>
-                        
-                        <HBox spacing="10.0" alignment="CENTER">
+
+                        <Separator prefWidth="200.0" style="-fx-opacity: 0.5;">
+                           <VBox.margin><Insets bottom="5.0" top="5.0" /></VBox.margin>
+                        </Separator>
+
+                        <VBox spacing="10.0" alignment="CENTER">
                            <children>
-                              <Button fx:id="btnRegistrarOp" onAction="#onRegistrar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="Registrar" />
-                              <Button fx:id="btnActualizarOp" onAction="#onActualizar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #2980b9; -fx-text-fill: white;" text="Actualizar" />
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <Button fx:id="btnRegistrarOp" onAction="#onRegistrar" maxWidth="1.7976931348623157E308" prefHeight="35.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;" text="Registrar" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="btnActualizarOp" onAction="#onActualizar" maxWidth="1.7976931348623157E308" prefHeight="35.0" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;" text="Actualizar" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <Button fx:id="btnEliminarOp" onAction="#onEliminar" maxWidth="1.7976931348623157E308" prefHeight="35.0" style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;" text="Eliminar" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="btnLimpiarOp" onAction="#onLimpiar" maxWidth="1.7976931348623157E308" prefHeight="35.0" style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;" text="Limpiar" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
                            </children>
-                        </HBox>
-                        <HBox spacing="10.0" alignment="CENTER">
-                           <children>
-                              <Button fx:id="btnEliminarOp" onAction="#onEliminar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #c0392b; -fx-text-fill: white;" text="Eliminar" />
-                              <Button fx:id="btnLimpiarOp" onAction="#onLimpiar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #7f8c8d; -fx-text-fill: white;" text="Limpiar" />
-                           </children>
-                        </HBox>
+                        </VBox>
                      </children>
                   </VBox>
 
-                  <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                  <!-- ASIGNACIÓN -->
+                  <VBox spacing="15.0" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
                      <children>
                         <Label text="Asignación de Atracción" textFill="#2c3e50">
-                           <font> <Font name="System Bold" size="16.0" /> </font>
+                           <font><Font name="System Bold" size="16.0" /></font>
                         </Label>
                         <VBox spacing="10.0">
                            <children>
-                              <Label text="Zona" />
+                              <Label text="Zona" textFill="#34495e">
+                                 <font><Font name="System Bold" size="12.0" /></font>
+                              </Label>
                               <ComboBox fx:id="comboZonaAsig" maxWidth="Infinity" promptText="Seleccionar zona" />
-                              <Label text="Atracción" />
+                              <Label text="Atracción" textFill="#34495e">
+                                 <font><Font name="System Bold" size="12.0" /></font>
+                              </Label>
                               <ComboBox fx:id="comboAtraccionAsig" maxWidth="Infinity" promptText="Seleccionar atracción" />
-                              <Button fx:id="btnAsignar" maxWidth="Infinity" onAction="#onAsignar" prefHeight="35.0" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold;" text="Realizar Asignación">
-                                 <VBox.margin> <Insets top="10.0" /> </VBox.margin>
+                              <Button fx:id="btnAsignar" maxWidth="Infinity" onAction="#onAsignar" prefHeight="35.0" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;" text="Realizar Asignación">
+                                 <VBox.margin><Insets top="10.0" /></VBox.margin>
                               </Button>
                            </children>
                         </VBox>

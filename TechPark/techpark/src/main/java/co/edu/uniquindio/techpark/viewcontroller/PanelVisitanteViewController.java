@@ -9,11 +9,15 @@ import co.edu.uniquindio.techpark.model.Visitante;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.util.Collections;
@@ -27,7 +31,7 @@ import java.util.List;
  *   - Listado y compra de tickets.
  *   - Atracciones favoritas.
  *   - Notificaciones con opción de eliminación.
- *   - Navegación a Cola Virtual y cierre de sesión.
+ *   - Navegación a Cola Virtual, Mapa del Parque y cierre de sesión.
  */
 public class PanelVisitanteViewController {
 
@@ -37,10 +41,6 @@ public class PanelVisitanteViewController {
 
     private final VisitanteController visitanteController = new VisitanteController();
 
-    /**
-     * Documento del visitante en sesión activa.
-     * Se obtiene al construir el campo para que esté disponible desde initialize().
-     */
     private final String documentoActivo = ParqueController.getDocumentoSesionActiva();
 
     // -------------------------------------------------------------------------
@@ -75,6 +75,7 @@ public class PanelVisitanteViewController {
     // Campos FXML — Navegación
     // -------------------------------------------------------------------------
 
+    @FXML private Button btnVerMapa;
     @FXML private Button btnIrAColaVirtual;
     @FXML private Button btnCerrarSesion;
 
@@ -82,13 +83,8 @@ public class PanelVisitanteViewController {
     // Inicialización
     // =========================================================================
 
-    /**
-     * Punto de entrada de JavaFX tras la inyección de los campos FXML.
-     * Configura los componentes y carga todos los datos de sesión.
-     */
     @FXML
     public void initialize() {
-        // Guardia: sesión inválida impide cualquier operación posterior.
         if (documentoActivo == null || documentoActivo.isBlank()) {
             AlertaUtil.error("Error crítico: no hay una sesión activa. Reinicia la aplicación.");
             deshabilitarPanelCompleto();
@@ -104,12 +100,8 @@ public class PanelVisitanteViewController {
     // Configuración de componentes
     // =========================================================================
 
-    /**
-     * Define cómo se renderizan los objetos del modelo en cada ListView.
-     */
     private void configurarCellFactories() {
 
-        // Ticket: ID, tipo, estado y precio formateados.
         listViewTickets.setCellFactory(lv -> new ListCell<>() {
             @Override
             protected void updateItem(Ticket item, boolean empty) {
@@ -126,7 +118,6 @@ public class PanelVisitanteViewController {
             }
         });
 
-        // Notificacion (record): muestra el mensaje; id() se usa solo para eliminación.
         listViewNotificaciones.setCellFactory(lv -> new ListCell<>() {
             @Override
             protected void updateItem(Notificacion item, boolean empty) {
@@ -134,16 +125,12 @@ public class PanelVisitanteViewController {
                 if (empty || item == null) {
                     setText(null);
                 } else {
-                    // Ajusta los accessors según los componentes reales del record Notificacion.
                     setText(item.mensaje());
                 }
             }
         });
-
-        // Favoritos son String: la celda predeterminada es suficiente.
     }
 
-    /** Carga los valores del enum TipoTicket en el ComboBox. */
     private void configurarComboTicket() {
         comboTipoTicket.setItems(FXCollections.observableArrayList(TipoTicket.values()));
     }
@@ -152,7 +139,6 @@ public class PanelVisitanteViewController {
     // Carga y sincronización de datos
     // =========================================================================
 
-    /** Recarga todos los paneles. Útil tras operaciones que alteran el estado. */
     private void cargarTodosLosDatos() {
         cargarResumenCuenta();
         cargarTickets();
@@ -206,7 +192,7 @@ public class PanelVisitanteViewController {
 
         if (exito) {
             AlertaUtil.exito("¡Compra exitosa! Tu ticket ha sido añadido a tu cuenta.");
-            comboTipoTicket.setValue(null);   // Limpia la selección tras compra exitosa
+            comboTipoTicket.setValue(null);
             cargarResumenCuenta();
             cargarTickets();
         } else {
@@ -236,6 +222,26 @@ public class PanelVisitanteViewController {
     // =========================================================================
 
     @FXML
+    public void onVerMapa() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/view/MapaParqueView.fxml"));
+            Parent root = loader.load();
+
+            Stage mapaStage = new Stage();
+            mapaStage.setTitle("Mapa del Parque — TechPark");
+            mapaStage.setScene(new Scene(root));
+            mapaStage.setResizable(true);
+            mapaStage.initModality(Modality.WINDOW_MODAL);
+            mapaStage.initOwner(btnVerMapa.getScene().getWindow());
+            mapaStage.show();
+
+        } catch (Exception e) {
+            AlertaUtil.error("No se pudo abrir el mapa: " + e.getMessage());
+        }
+    }
+
+    @FXML
     public void onIrAColaVirtual() {
         NavegadorUtil.irA(
                 (Stage) btnIrAColaVirtual.getScene().getWindow(),
@@ -254,14 +260,11 @@ public class PanelVisitanteViewController {
     // Utilitario interno
     // =========================================================================
 
-    /**
-     * Deshabilita todos los controles interactivos cuando la sesión no es válida.
-     * Previene NullPointerExceptions por operaciones sobre un documento nulo.
-     */
     private void deshabilitarPanelCompleto() {
         btnComprarTicket.setDisable(true);
         btnEliminarNotificacion.setDisable(true);
         btnIrAColaVirtual.setDisable(true);
+        btnVerMapa.setDisable(true);
         comboTipoTicket.setDisable(true);
     }
 }

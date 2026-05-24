@@ -60,16 +60,16 @@
   "edad" : 25,
   "contrasenia" : "lau_tobon_secure",
   "activo" : false,
-  "nombreZonaAsignada" : "Zona Familiar y Aventura",
-  "nombreAtraccionAsignada" : "Carros Chocones"
+  "nombreZonaAsignada" : "Zona de Shows y Tecnologia",
+  "nombreAtraccionAsignada" : "Show de Luces y Drones"
 }, {
   "nombre" : "Sebastián Beltrán",
   "documento" : "10984729",
   "edad" : 29,
   "contrasenia" : "sebas_op_park",
   "activo" : false,
-  "nombreZonaAsignada" : "Zona Familiar y Aventura",
-  "nombreAtraccionAsignada" : "Casa del Terror"
+  "nombreZonaAsignada" : "Zona de Shows y Tecnologia",
+  "nombreAtraccionAsignada" : "Show de Luces y Drones"
 }, {
   "nombre" : "Manuela Jaramillo",
   "documento" : "11162938",
