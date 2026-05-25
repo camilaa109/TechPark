@@ -62,6 +62,10 @@ public class Visitante extends Persona {
         }
     }
 
+    public void eliminarFavorito (String nombreAtraccion){
+        listaFavoritos.remove(nombreAtraccion);
+    }
+
     //getters y setters
     public List<Ticket> getListaTickets() {
         return listaTickets;

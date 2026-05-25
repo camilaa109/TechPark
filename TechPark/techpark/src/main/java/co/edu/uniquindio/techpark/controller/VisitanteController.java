@@ -98,6 +98,10 @@ public class VisitanteController {
         parque.agregarFavorito(documento, nombreAtraccion);
     }
 
+    public void eliminarFavorito(String documento, String nombreAtraccion) {
+        parque.eliminarFavorito(documento, nombreAtraccion);
+    }
+
     public List<String> obtenerFavoritos(String documento){
         return parque.obtenerFavoritos(documento);
     }
@@ -138,7 +142,7 @@ public class VisitanteController {
      *
      * @return true si el acceso es válido.
      */
-    public boolean accederAtraccion(String documento, String nombreZona, String nombreAtraccion) {
+    public String accederAtraccion(String documento, String nombreZona, String nombreAtraccion) {
         return parque.accesoAtraccion(documento, nombreZona, nombreAtraccion);
     }
 }

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -11,10 +12,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" spacing="20.0" prefWidth="500.0" prefHeight="450.0" 
-      style="-fx-background-color: #f4f4f9; -fx-padding: 30;" 
-      xmlns="http://javafx.com/javafx/21" 
-      xmlns:fx="http://javafx.com/fxml/1" 
+<VBox alignment="TOP_CENTER" spacing="20.0" prefWidth="500.0" prefHeight="620.0"
+      style="-fx-background-color: #f4f4f9; -fx-padding: 30;"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="co.edu.uniquindio.techpark.viewcontroller.ColaVirtualAtraccionViewController">
    
    <children>
@@ -62,19 +63,25 @@
          </children>
       </GridPane>
 
-      <VBox alignment="CENTER" spacing="12.0" style="-fx-background-color: #eef2f3; -fx-padding: 15; -fx-background-radius: 8;" VBox.vgrow="ALWAYS">
+      <VBox spacing="12.0" style="-fx-background-color: #eef2f3; -fx-padding: 15; -fx-background-radius: 8;" VBox.vgrow="ALWAYS">
          <children>
             <Label fx:id="lblTiempoEspera" text="Tiempo estimado de espera: --" textFill="#2c3e50">
-               <font>
-                  <Font size="14.0" />
-               </font>
+               <font><Font size="14.0" /></font>
             </Label>
-            
-            <Label fx:id="lblEstadoAcceso" text="Esperando selección..." textFill="#7f8c8d">
-               <font>
-                  <Font name="System Italic" size="13.0" />
-               </font>
+            <Label fx:id="lblEstadoAcceso" text="Esperando selección..." textFill="#36494b">
+               <font><Font name="System Italic" size="14.0" /></font>
             </Label>
+
+            <Label fx:id="lblTituloCola" text="Cola Virtual" textFill="#2c3e50" managed="false" visible="false">
+               <font><Font name="System Bold" size="13.0" /></font>
+               <VBox.margin><Insets top="8.0" /></VBox.margin>
+            </Label>
+            <Label fx:id="lblTamanioCola" text="" textFill="#95a5a6" managed="false" visible="false">
+               <font><Font size="11.0" /></font>
+            </Label>
+            <ListView fx:id="listViewCola" prefHeight="150.0" managed="false" visible="false"
+                      style="-fx-background-radius: 5; -fx-border-color: #dcdde1; -fx-border-radius: 5;"
+                      VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
 

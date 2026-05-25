@@ -7,7 +7,11 @@ import co.edu.uniquindio.techpark.model.Ticket;
 import co.edu.uniquindio.techpark.model.TipoTicket;
 import co.edu.uniquindio.techpark.model.Visitante;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
+import javafx.concurrent.Task;
+import javafx.util.Duration;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -49,6 +53,7 @@ public class PanelVisitanteViewController {
 
     @FXML private Label lblNombreBienvenida;
     @FXML private Label lblSaldo;
+    @FXML private Label lblPrecioTicket;
 
     // -------------------------------------------------------------------------
     // Campos FXML — Sección de Tickets
@@ -63,6 +68,8 @@ public class PanelVisitanteViewController {
     // -------------------------------------------------------------------------
 
     @FXML private ListView<String> listViewFavoritos;
+    @FXML private Button           btnAgregarFavorito;
+    @FXML private Button           btnEliminarFavorito;
 
     // -------------------------------------------------------------------------
     // Campos FXML — Sección de Notificaciones
@@ -94,6 +101,7 @@ public class PanelVisitanteViewController {
         configurarCellFactories();
         configurarComboTicket();
         cargarTodosLosDatos();
+        iniciarActualizacionAutomatica();
     }
 
     // =========================================================================
@@ -133,6 +141,13 @@ public class PanelVisitanteViewController {
 
     private void configurarComboTicket() {
         comboTipoTicket.setItems(FXCollections.observableArrayList(TipoTicket.values()));
+        comboTipoTicket.valueProperty().addListener((obs, old, seleccionado) -> {
+            if (seleccionado != null) {
+                lblPrecioTicket.setText(String.format("Precio: $%.2f", seleccionado.getPrecio()));
+            } else {
+                lblPrecioTicket.setText("");
+            }
+        });
     }
 
     // =========================================================================
@@ -201,6 +216,50 @@ public class PanelVisitanteViewController {
     }
 
     // =========================================================================
+    // Eventos — Gestión de Favoritos
+    // =========================================================================
+
+    @FXML
+    public void onAgregarFavorito() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/view/SelectorFavoritoView.fxml"));
+            Parent root = loader.load();
+
+            SelectorFavoritoViewController controller = loader.getController();
+            controller.setOnConfirmado(nombreAtraccion -> {
+                visitanteController.agregarFavorito(documentoActivo, nombreAtraccion);
+                cargarFavoritos();
+                AlertaUtil.exito("\"" + nombreAtraccion + "\" añadida a favoritos.");
+            });
+
+            Stage stage = new Stage();
+            stage.setTitle("Agregar Favorito");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(btnAgregarFavorito.getScene().getWindow());
+            stage.show();
+
+        } catch (Exception e) {
+            AlertaUtil.error("No se pudo abrir el selector: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    public void onEliminarFavorito() {
+        String seleccionado = listViewFavoritos.getSelectionModel().getSelectedItem();
+
+        if (seleccionado == null) {
+            AlertaUtil.advertencia("Selecciona una atracción de la lista para eliminarla de favoritos.");
+            return;
+        }
+
+        visitanteController.eliminarFavorito(documentoActivo, seleccionado);
+        cargarFavoritos();
+    }
+
+    // =========================================================================
     // Eventos — Gestión de Notificaciones
     // =========================================================================
 
@@ -260,9 +319,31 @@ public class PanelVisitanteViewController {
     // Utilitario interno
     // =========================================================================
 
+    private void iniciarActualizacionAutomatica() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(30), e -> {
+            Task<List<Notificacion>> task = new Task<>() {
+                @Override
+                protected List<Notificacion> call() {
+                    return visitanteController.obtenerNotificaciones(documentoActivo);
+                }
+            };
+            task.setOnSucceeded(ev ->
+                listViewNotificaciones.setItems(
+                    FXCollections.observableArrayList(
+                        task.getValue() != null ? task.getValue() : Collections.emptyList()))
+            );
+            new Thread(task).start();
+        }));
+        listViewNotificaciones.refresh();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+    }
+
     private void deshabilitarPanelCompleto() {
         btnComprarTicket.setDisable(true);
         btnEliminarNotificacion.setDisable(true);
+        btnAgregarFavorito.setDisable(true);
+        btnEliminarFavorito.setDisable(true);
         btnIrAColaVirtual.setDisable(true);
         btnVerMapa.setDisable(true);
         comboTipoTicket.setDisable(true);

@@ -7,13 +7,13 @@
     "edadMinima" : 12,
     "alturaMinima" : 1.4
   },
-  "costoAdicional" : 15.0,
-  "visitantesAcumulados" : 1251,
+  "costoAdicional" : 15000.0,
+  "visitantesAcumulados" : 499,
   "tiempoEsperaSegundos" : 60,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "MECANICA_ALTURA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR4",
@@ -24,13 +24,13 @@
     "edadMinima" : 14,
     "alturaMinima" : 1.5
   },
-  "costoAdicional" : 12.0,
-  "visitantesAcumulados" : 640,
+  "costoAdicional" : 12000.0,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 90,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "MECANICA_ALTURA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR11",
@@ -41,8 +41,8 @@
     "edadMinima" : 15,
     "alturaMinima" : 1.55
   },
-  "costoAdicional" : 18.0,
-  "visitantesAcumulados" : 42,
+  "costoAdicional" : 18000.0,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 1200,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -58,8 +58,8 @@
     "edadMinima" : 13,
     "alturaMinima" : 1.45
   },
-  "costoAdicional" : 12.0,
-  "visitantesAcumulados" : 80,
+  "costoAdicional" : 12000.0,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 850,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -76,7 +76,7 @@
     "alturaMinima" : 0.9
   },
   "costoAdicional" : 0.0,
-  "visitantesAcumulados" : 90,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 120,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -93,7 +93,7 @@
     "alturaMinima" : 0.95
   },
   "costoAdicional" : 0.0,
-  "visitantesAcumulados" : 60,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 150,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -109,13 +109,13 @@
     "edadMinima" : 5,
     "alturaMinima" : 1.05
   },
-  "costoAdicional" : 4.0,
-  "visitantesAcumulados" : 1980,
+  "costoAdicional" : 4000.0,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 350,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "MECANICA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR2",
@@ -126,8 +126,8 @@
     "edadMinima" : 8,
     "alturaMinima" : 1.2
   },
-  "costoAdicional" : 5.0,
-  "visitantesAcumulados" : 70,
+  "costoAdicional" : 5000.0,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 300,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -144,7 +144,7 @@
     "alturaMinima" : 1.0
   },
   "costoAdicional" : 0.0,
-  "visitantesAcumulados" : 2100,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 90,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -161,12 +161,12 @@
     "alturaMinima" : 1.15
   },
   "costoAdicional" : 0.0,
-  "visitantesAcumulados" : 4120,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 180,
   "motivoCierre" : "pito",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "MECANICA",
-  "estadoAtraccion" : "CERRADA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR8",
@@ -177,8 +177,8 @@
     "edadMinima" : 12,
     "alturaMinima" : 1.3
   },
-  "costoAdicional" : 10.0,
-  "visitantesAcumulados" : 980,
+  "costoAdicional" : 10000.0,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 400,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -195,12 +195,12 @@
     "alturaMinima" : 1.1
   },
   "costoAdicional" : 0.0,
-  "visitantesAcumulados" : 1450,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 100,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "OTRO",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR16",
@@ -212,7 +212,7 @@
     "alturaMinima" : 1.0
   },
   "costoAdicional" : 0.0,
-  "visitantesAcumulados" : 2200,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 240,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -229,12 +229,12 @@
     "alturaMinima" : 0.9
   },
   "costoAdicional" : 0.0,
-  "visitantesAcumulados" : 3100,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 110,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "MECANICA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR19",
@@ -245,13 +245,13 @@
     "edadMinima" : 8,
     "alturaMinima" : 1.2
   },
-  "costoAdicional" : 6.0,
-  "visitantesAcumulados" : 1340,
+  "costoAdicional" : 6000.0,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 450,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "OTRO",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR6",
@@ -262,8 +262,8 @@
     "edadMinima" : 6,
     "alturaMinima" : 1.1
   },
-  "costoAdicional" : 6.0,
-  "visitantesAcumulados" : 1890,
+  "costoAdicional" : 6000.0,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 750,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -279,8 +279,8 @@
     "edadMinima" : 8,
     "alturaMinima" : 1.2
   },
-  "costoAdicional" : 7.5,
-  "visitantesAcumulados" : 2300,
+  "costoAdicional" : 7500.0,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 800,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
@@ -296,13 +296,13 @@
     "edadMinima" : 10,
     "alturaMinima" : 1.3
   },
-  "costoAdicional" : 5.0,
-  "visitantesAcumulados" : 1100,
+  "costoAdicional" : 5000.0,
+  "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 500,
   "motivoCierre" : "",
   "listaOperadoresAsignados" : [ ],
   "tipoAtraccion" : "ACUATICA",
-  "estadoAtraccion" : "ACTIVA",
+  "estadoAtraccion" : "EN_MANTENIMIENTO",
   "colaVirtual" : [ ]
 }, {
   "idAtraccion" : "ATR20",
@@ -313,7 +313,7 @@
     "edadMinima" : 6,
     "alturaMinima" : 1.1
   },
-  "costoAdicional" : 10.0,
+  "costoAdicional" : 10000.0,
   "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 600,
   "motivoCierre" : "Falla en el sensor de escotilla",
@@ -330,7 +330,7 @@
     "edadMinima" : 10,
     "alturaMinima" : 1.35
   },
-  "costoAdicional" : 3.0,
+  "costoAdicional" : 3000.0,
   "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 400,
   "motivoCierre" : "",
@@ -347,7 +347,7 @@
     "edadMinima" : 7,
     "alturaMinima" : 1.1
   },
-  "costoAdicional" : 8.0,
+  "costoAdicional" : 8000.0,
   "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 200,
   "motivoCierre" : "",
@@ -398,7 +398,7 @@
     "edadMinima" : 5,
     "alturaMinima" : 1.0
   },
-  "costoAdicional" : 5.0,
+  "costoAdicional" : 5000.0,
   "visitantesAcumulados" : 0,
   "tiempoEsperaSegundos" : 300,
   "motivoCierre" : "",

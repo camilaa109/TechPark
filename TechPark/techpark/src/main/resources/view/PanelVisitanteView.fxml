@@ -74,6 +74,8 @@
                         style="-fx-background-color: #1976d2; -fx-text-fill: white;
                                -fx-font-weight: bold; -fx-cursor: hand;"/>
             </HBox>
+            <Label fx:id="lblPrecioTicket"
+                   style="-fx-font-weight: bold; -fx-font-size: 12px; -fx-text-fill: #333;"/>
         </VBox>
 
         <!-- ── COLUMNA DERECHA: Favoritos + Notificaciones ── -->
@@ -83,8 +85,29 @@
             <Label text="⭐  Mis Favoritos"
                    style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #333;"/>
 
+            <Label text="🔔 Recibirás notificaciones sobre el estado de tus atracciones favoritas."
+                   wrapText="true"
+                   style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d; -fx-font-style: italic;"/>
+
             <ListView fx:id="listViewFavoritos"
-                      prefHeight="110"/>
+                      prefHeight="90"/>
+
+            <HBox spacing="8">
+                <Button fx:id="btnAgregarFavorito"
+                        text="＋ Agregar"
+                        onAction="#onAgregarFavorito"
+                        maxWidth="Infinity"
+                        HBox.hgrow="ALWAYS"
+                        style="-fx-background-color: #f39c12; -fx-text-fill: white;
+                               -fx-font-weight: bold; -fx-cursor: hand;"/>
+                <Button fx:id="btnEliminarFavorito"
+                        text="✕ Eliminar"
+                        onAction="#onEliminarFavorito"
+                        maxWidth="Infinity"
+                        HBox.hgrow="ALWAYS"
+                        style="-fx-background-color: #c0392b; -fx-text-fill: white;
+                               -fx-font-weight: bold; -fx-cursor: hand;"/>
+            </HBox>
 
             <Separator>
                 <VBox.margin>

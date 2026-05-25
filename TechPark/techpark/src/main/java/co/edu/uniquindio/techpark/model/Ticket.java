@@ -26,16 +26,7 @@ public class Ticket {
 
     private double definirPrecioTicket(TipoTicket tipoTicket, double descuento){
 
-        switch (tipoTicket){
-            case GENERAL:
-                return 100 * (1-descuento);
-            case FAST_PASS:
-                return 200 * (1-descuento);
-            case FAMILIAR:
-                return 300 * (1-descuento);
-            default:
-                return 0;
-        }
+       return tipoTicket.getPrecio() * (1-descuento);
     }
 
     //getters y setters

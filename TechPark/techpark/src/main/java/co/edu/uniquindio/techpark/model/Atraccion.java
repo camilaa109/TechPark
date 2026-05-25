@@ -65,7 +65,6 @@ public class Atraccion {
     }
 
     public void agregarVisitanteCola (Visitante visitante){
-        System.out.println(visitante.obtenerTicket(EstadoTicket.ACTIVO).getTipoTicket().getNivel());
         colaVirtual.add(visitante);
     }
     

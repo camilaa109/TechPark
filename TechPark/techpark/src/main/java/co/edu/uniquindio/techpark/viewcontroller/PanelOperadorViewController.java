@@ -11,9 +11,14 @@ import co.edu.uniquindio.techpark.model.Zona;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.collections.FXCollections;
+
+import co.edu.uniquindio.techpark.model.Visitante;
 
 import java.util.List;
 
@@ -49,6 +54,7 @@ public class PanelOperadorViewController {
     @FXML private Label lblEstadoAtraccion;
     @FXML private Label lblCapacidadAtraccion;
     @FXML private Label lblTamanioCola;
+    @FXML private ListView<Visitante> listViewCola;
 
     // --- Formulario de Apertura / Cierre ---
     @FXML private TextField txtMotivoCierre;
@@ -139,9 +145,23 @@ public class PanelOperadorViewController {
         
         // Manejo seguro del tamaño de la cola virtual
         if (atraccionAsignada.getColaVirtual() != null) {
-            lblTamanioCola.setText("Visitantes en cola: " + atraccionAsignada.getColaVirtual().size());
+            int tamano = atraccionAsignada.getColaVirtual().size();
+            lblTamanioCola.setText(tamano + " persona" + (tamano != 1 ? "s" : "") + " en cola");
+
+            // Mostrar nombres en el ListView (copia para no alterar el orden de la PriorityQueue)
+            List<Visitante> visitantesEnCola = new java.util.ArrayList<>(atraccionAsignada.getColaVirtual());
+            listViewCola.setItems(FXCollections.observableArrayList(visitantesEnCola));
+            listViewCola.setCellFactory(lv -> new ListCell<>() {
+                @Override
+                protected void updateItem(Visitante v, boolean empty) {
+                    super.updateItem(v, empty);
+                    if (empty || v == null) setText(null);
+                    else setText((getIndex() + 1) + ".  " + v.getNombre());
+                }
+            });
         } else {
-            lblTamanioCola.setText("Visitantes en cola: 0");
+            lblTamanioCola.setText("0 personas en cola");
+            listViewCola.getItems().clear();
         }
 
         // Habilitar o deshabilitar botones visuales según el estado real de la atracción
@@ -162,12 +182,7 @@ public class PanelOperadorViewController {
     public void onAbrirAtraccion() {
         if (atraccionAsignada == null) return;
 
-        atraccionController.cambiarEstadoAtraccion(
-                nombreZonaAsignada,
-                atraccionAsignada.getNombreAtraccion(),
-                EstadoAtraccion.ACTIVA,
-                ""
-        );
+        atraccionController.abrirAtraccion(nombreZonaAsignada, documentoActivo);
 
         txtMotivoCierre.clear();
         actualizarFichaTecnica();

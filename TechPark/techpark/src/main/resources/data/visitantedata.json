@@ -4,7 +4,7 @@
   "edad" : 28,
   "contrasenia" : "carlos2024",
   "estatura" : 1.75,
-  "saldoVirtual" : 5.5,
+  "saldoVirtual" : 500000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Montaña Rusa", "Carrusel" ],
   "notificaciones" : [ ]
@@ -14,7 +14,7 @@
   "edad" : 22,
   "contrasenia" : "ana_pass99",
   "estatura" : 1.62,
-  "saldoVirtual" : 20.5,
+  "saldoVirtual" : 205000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Rueda de la Fortuna" ],
   "notificaciones" : [ ]
@@ -24,7 +24,7 @@
   "edad" : 35,
   "contrasenia" : "juanP#2026",
   "estatura" : 1.8,
-  "saldoVirtual" : 15.0,
+  "saldoVirtual" : 150000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Carros Chocones", "Barco Pirata" ],
   "notificaciones" : [ ]
@@ -34,9 +34,9 @@
   "edad" : 19,
   "contrasenia" : "lucy_sky",
   "estatura" : 1.58,
-  "saldoVirtual" : 200.0,
+  "saldoVirtual" : 200000.0,
   "listaTickets" : [ ],
-  "listaFavoritos" : [ "Casa del Terror", "Montaña Rusa" ],
+  "listaFavoritos" : [ "Casa del Terror", "Montaña Rusa", "Splash Nocturno" ],
   "notificaciones" : [ ]
 }, {
   "nombre" : "Mateo Gómez",
@@ -44,7 +44,7 @@
   "edad" : 31,
   "contrasenia" : "mat_gomez123",
   "estatura" : 1.72,
-  "saldoVirtual" : 35.0,
+  "saldoVirtual" : 350000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ ],
   "notificaciones" : [ ]
@@ -64,7 +64,7 @@
   "edad" : 40,
   "contrasenia" : "rtorres!99",
   "estatura" : 1.85,
-  "saldoVirtual" : 500.0,
+  "saldoVirtual" : 500000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Montaña Rusa", "Torre de Caida Libre", "Troncos Locos" ],
   "notificaciones" : [ ]
@@ -74,7 +74,7 @@
   "edad" : 27,
   "contrasenia" : "elena_m_27",
   "estatura" : 1.6,
-  "saldoVirtual" : 42.0,
+  "saldoVirtual" : 420000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Carrusel" ],
   "notificaciones" : [ ]
@@ -84,7 +84,7 @@
   "edad" : 21,
   "contrasenia" : "santi_p_pass",
   "estatura" : 1.78,
-  "saldoVirtual" : 10.0,
+  "saldoVirtual" : 100000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Casa del Terror" ],
   "notificaciones" : [ ]
@@ -94,7 +94,7 @@
   "edad" : 24,
   "contrasenia" : "isa_rios24",
   "estatura" : 1.68,
-  "saldoVirtual" : 85.5,
+  "saldoVirtual" : 855000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Rueda de la Fortuna", "Carrusel" ],
   "notificaciones" : [ ]
@@ -104,7 +104,7 @@
   "edad" : 20,
   "contrasenia" : "alejo_m20",
   "estatura" : 1.7,
-  "saldoVirtual" : 65.0,
+  "saldoVirtual" : 650000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Simulador VR 4D", "Frenesi de Tazas" ],
   "notificaciones" : [ ]
@@ -114,7 +114,7 @@
   "edad" : 29,
   "contrasenia" : "gaby_secure!",
   "estatura" : 1.64,
-  "saldoVirtual" : 150.0,
+  "saldoVirtual" : 150000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Tornado de Acero", "Rapidos del Amazonas" ],
   "notificaciones" : [ ]
@@ -124,7 +124,7 @@
   "edad" : 33,
   "contrasenia" : "dan_villa33",
   "estatura" : 1.82,
-  "saldoVirtual" : 25.0,
+  "saldoVirtual" : 250000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Carros Chocones" ],
   "notificaciones" : [ ]
@@ -134,7 +134,7 @@
   "edad" : 18,
   "contrasenia" : "mari_jara18",
   "estatura" : 1.55,
-  "saldoVirtual" : 80.0,
+  "saldoVirtual" : 800000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Sillas Voladoras Kid", "Carrusel de las Luces" ],
   "notificaciones" : [ ]
@@ -154,7 +154,7 @@
   "edad" : 23,
   "contrasenia" : "cami_8a_pass",
   "estatura" : 1.61,
-  "saldoVirtual" : 95.0,
+  "saldoVirtual" : 950000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Teatro de Efectos Especiales", "Cine Max 7D" ],
   "notificaciones" : [ ]
@@ -164,7 +164,7 @@
   "edad" : 30,
   "contrasenia" : "julian_d30",
   "estatura" : 1.79,
-  "saldoVirtual" : 110.0,
+  "saldoVirtual" : 110000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Desafío Láser", "Simulador VR 4D" ],
   "notificaciones" : [ ]
@@ -174,7 +174,7 @@
   "edad" : 21,
   "contrasenia" : "sofiv_nova21",
   "estatura" : 1.67,
-  "saldoVirtual" : 45.0,
+  "saldoVirtual" : 450000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Troncos Locos", "Splash Nocturno" ],
   "notificaciones" : [ ]
@@ -184,7 +184,7 @@
   "edad" : 37,
   "contrasenia" : "nico_berm37",
   "estatura" : 1.84,
-  "saldoVirtual" : 320.0,
+  "saldoVirtual" : 320000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "Tornado de Acero", "El Pendulo Gigante", "Montaña Rusa Alfa" ],
   "notificaciones" : [ ]
@@ -194,7 +194,7 @@
   "edad" : 25,
   "contrasenia" : "manu_b_secure",
   "estatura" : 1.59,
-  "saldoVirtual" : 15.5,
+  "saldoVirtual" : 155000.0,
   "listaTickets" : [ ],
   "listaFavoritos" : [ "El Laberinto Espejo" ],
   "notificaciones" : [ ]

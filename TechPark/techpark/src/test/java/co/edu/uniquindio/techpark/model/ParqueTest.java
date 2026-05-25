@@ -90,7 +90,7 @@ public class ParqueTest {
         registroVisitante();
 
         String documento = "123";
-        double saldoVirtual = 5000;
+        double saldoVirtual = 500000;
         Visitante visitanteEncontrado = parque.obtenerVisitante(documento);
         visitanteEncontrado.setSaldoVirtual(saldoVirtual);
 
@@ -322,9 +322,9 @@ public class ParqueTest {
         String nombreZona = "zona1";
         String nombreAtraccion = "atraccion1";
 
-        boolean esValido = parque.accesoAtraccion(documento, nombreZona, nombreAtraccion);
+        String esValido = parque.accesoAtraccion(documento, nombreZona, nombreAtraccion);
 
-        assertTrue(esValido, "El visitante no es valido");  
+        assertEquals("Ingresado a la cola virtual", esValido);  
         Atraccion atraccionEncontrada = parque.obtenerAtraccion(nombreZona, nombreAtraccion);
         assertEquals(documento, atraccionEncontrada.getColaVirtual().poll().getDocumento());
     }

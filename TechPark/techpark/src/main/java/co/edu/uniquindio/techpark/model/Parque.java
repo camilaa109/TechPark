@@ -16,6 +16,8 @@ public class Parque{
     private List<Empleado> listaEmpleados;
     private int contadorNotificaciones = 0;
 
+    private double descuentoFamiliar = 0.20;
+
     //Constructor
     public Parque(String nombre, int capacidadMaxima) {
         this.nombre = nombre;
@@ -74,7 +76,7 @@ public class Parque{
         Visitante v = obtenerVisitante(documento);
         double descuento = 0;
         if(tipoticket.equals(TipoTicket.FAMILIAR)){
-            descuento = 0.10;
+            descuento = descuentoFamiliar;
         }
         Ticket ticket = new Ticket(documento, descuento, tipoticket);
         if(v.getSaldoVirtual()<ticket.getPrecioTicket()){
@@ -90,28 +92,39 @@ public class Parque{
         return v.getListaTickets();
     }
 
-    public boolean accesoAtraccion(String documento, String nombreZona, String nombreAtraccion) {
+    public String accesoAtraccion(String documento, String nombreZona, String nombreAtraccion) {
         Atraccion atraccion = obtenerAtraccion(nombreZona, nombreAtraccion);
         Visitante visitante = obtenerVisitante(documento);
         Ticket ticket = visitante.obtenerTicket(EstadoTicket.ACTIVO);
         boolean esValido = atraccion.getRequisitosSeguridad().esApto(visitante.getEdad(), visitante.getEstatura());
-        if (!esValido 
-            || ticket == null 
-            || atraccion.getEstadoAtraccion() == EstadoAtraccion.CERRADA
-            || atraccion.getEstadoAtraccion() == EstadoAtraccion.EN_MANTENIMIENTO){
-
-            return false;
+        if (!esValido){
+            return "No cumple con los requisitos de seguridad.";
         }
+        if (ticket == null){
+            return "No cuenta con un ticket activo.";
+        }
+        if (atraccion.getEstadoAtraccion() == EstadoAtraccion.CERRADA){
+            return "La atraccion se encuentra cerrada, " + atraccion.getMotivoCierre() + ".";
+        }
+        if (atraccion.getEstadoAtraccion() == EstadoAtraccion.EN_MANTENIMIENTO){
+            return "La atraccion se encuentra en mantenimiento.";
+        }
+        
         if (atraccion.getCostoAdicional() > 0){
             if (ticket.getTipoTicket() == TipoTicket.GENERAL){
                 boolean pagoAprobado = realizarPago(visitante, atraccion.getCostoAdicional());
                 if (!pagoAprobado){
-                    return false;
+                    return "El pago no fue aprobado, recarga Saldo virtual";
                 }
             }
         }
+        for (Visitante v : atraccion.getColaVirtual()){
+            if (v.getDocumento().equals(documento)){
+                return "Ya estás en la cola virtual";
+            }
+        }
         atraccion.agregarVisitanteCola(visitante);
-        return true;
+        return "Ingresado a la cola virtual";
     }
 
     public boolean realizarPago (Visitante visitante, double cantidad){
@@ -125,6 +138,11 @@ public class Parque{
     public void agregarFavorito (String documento, String nombreAtraccion){
         Visitante v = obtenerVisitante(documento);
         v.agregarFavorito(nombreAtraccion);
+    }
+
+    public void eliminarFavorito (String documento, String nombreAtraccion){
+        Visitante v = obtenerVisitante(documento);
+        v.eliminarFavorito(nombreAtraccion);
     }
 
     public List<String> obtenerFavoritos (String documento){
@@ -289,6 +307,17 @@ public class Parque{
         return zona.obtenerAtraccion(nombreAtraccion);
     }
 
+    public Atraccion obtenerAtraccion (String nombreAtraccion){
+        Atraccion a;
+        for (Zona z : listaZonas){
+            a = z.obtenerAtraccion(nombreAtraccion);
+            if (a != null){
+                return a;
+            }
+        }
+        return null;
+    }
+
     public void agregarAtraccion (String nombreAtraccion, int capacidadMaxima, int edadMinima, double alturaMinima, 
         double costoAdicional, int tiempoEspera, TipoAtraccion tipoAtraccion, String nombreZona){
         Zona zona = obtenerZona(nombreZona);
@@ -311,6 +340,7 @@ public class Parque{
                     a.setEstadoAtraccion(EstadoAtraccion.EN_MANTENIMIENTO);
                     notificarVisitantes(obtenerVisitantesActivos(), "Cierre de Atracción", 
                     "Atracción " + a.getNombreAtraccion() + " se encuentra en mantenimiento.");
+                    a.setVisitantesAcumulados(0);
                 }
             }
         }
@@ -373,8 +403,13 @@ public class Parque{
     public List<Empleado> getListaEmpleados() {
         return listaEmpleados;
     }
+    
 
     //Setters
+
+    public double getDescuentoFamiliar() {
+        return descuentoFamiliar;
+    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -394,6 +429,10 @@ public class Parque{
 
     public void setListaEmpleados(List<Empleado> listaEmpleados) {
         this.listaEmpleados = listaEmpleados;
+    }
+
+    public void setDescuentoFamiliar(double descuentoFamiliar) {
+        this.descuentoFamiliar = descuentoFamiliar;
     }
 
     public void setAtracciones(List<Atraccion> atracciones) {

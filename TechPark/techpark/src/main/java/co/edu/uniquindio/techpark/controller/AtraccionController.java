@@ -69,6 +69,12 @@ public class AtraccionController {
     }
 
     /**
+     * Cambia el estado de una atracción a abierto y notifica a visitantes
+     */
+    public void abrirAtraccion(String nombreZona, String nombreAtraccion){
+        parque.abrirAtraccion(nombreZona, nombreAtraccion);
+    }
+    /**
      * Ejecuta un ciclo completo de la atracción.
      */
     public void realizarCicloAtraccion(String nombreZona, String nombreAtraccion) {
